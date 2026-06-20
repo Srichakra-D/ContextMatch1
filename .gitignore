@@ -4,6 +4,6 @@ __pycache__/
 .venv/
 runs/
 calibration/
-top_700.json
-top_700.jsonl
 *.csv
+.DS_Store
+PROJECT_HANDOFF.md
