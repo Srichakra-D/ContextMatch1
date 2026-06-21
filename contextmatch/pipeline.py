@@ -18,6 +18,7 @@ from .output import fallback_reasoning, reasoning_is_valid, write_submission
 from .prompts import comparison_messages, reasoning_messages, scoring_messages
 from .rerank import aggregate_comparisons, make_comparison_groups
 from .rubric import RUBRIC_VERSION, calculate_score, merge_assessments
+from .stage_outputs import write_comparative_ranking, write_individual_ranking
 
 
 def load_anchors(path: str | Path | None) -> list[dict[str, Any]]:
@@ -271,11 +272,27 @@ async def run_full_pipeline(
         client, candidates, anchors=anchors
     )
     write_jsonl(artifacts / "initial_scores.jsonl", scores)
+    initial_ranked = sorted(
+        scores, key=lambda item: (-item.rubric_score, item.candidate_id)
+    )
+    initial_snapshot = {
+        item.candidate_id: {"rank": rank, "score": item.rubric_score}
+        for rank, item in enumerate(initial_ranked, start=1)
+    }
 
     repeat_report = await repeat_uncertain_scores(
         client, candidates_by_id, scores, anchors
     )
     write_jsonl(artifacts / "post_repeat_scores.jsonl", scores)
+    individual_ranked = write_individual_ranking(
+        artifacts / "stage_2_individual_ranking.csv",
+        scores,
+        initial_snapshot,
+    )
+    write_jsonl(
+        artifacts / "stage_2_individual_assessments.jsonl",
+        individual_ranked,
+    )
 
     rerank_report = await comparative_rerank(client, candidates_by_id, scores)
     for item in scores:
@@ -289,6 +306,15 @@ async def run_full_pipeline(
         ),
     )
     write_jsonl(artifacts / "final_scores.jsonl", ranked)
+    write_comparative_ranking(
+        artifacts / "stage_3_comparative_ranking.csv",
+        ranked,
+        individual_ranked,
+    )
+    write_jsonl(
+        artifacts / "stage_3_comparative_assessments.jsonl",
+        ranked,
+    )
 
     reasonings, reasoning_report = await generate_reasonings(
         client, candidates_by_id, ranked
@@ -303,6 +329,20 @@ async def run_full_pipeline(
         "repeat_scoring": repeat_report,
         "comparative_rerank": rerank_report,
         "reasoning": reasoning_report,
+        "stage_outputs": {
+            "stage_2_individual_ranking": str(
+                artifacts / "stage_2_individual_ranking.csv"
+            ),
+            "stage_2_individual_assessments": str(
+                artifacts / "stage_2_individual_assessments.jsonl"
+            ),
+            "stage_3_comparative_ranking": str(
+                artifacts / "stage_3_comparative_ranking.csv"
+            ),
+            "stage_3_comparative_assessments": str(
+                artifacts / "stage_3_comparative_assessments.jsonl"
+            ),
+        },
         "total_elapsed_seconds": round(time.perf_counter() - started, 3),
         "output_csv": str(output_csv),
     }

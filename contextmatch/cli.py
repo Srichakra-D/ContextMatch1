@@ -25,6 +25,7 @@ from .llm import VLLMClient
 from .models import CalibrationReview, ScoredCandidate
 from .output import validate_submission
 from .pipeline import load_anchors, run_full_pipeline, score_candidates
+from .stage_outputs import write_calibration_comparison
 
 DEFAULT_SCHEMA = "India_runs_data_and_ai_challenge/candidate_schema.json"
 DEFAULT_MODEL = "qwen3-14b-awq"
@@ -109,6 +110,21 @@ async def _evaluate_command(args: argparse.Namespace) -> None:
         await client.close()
     report = calibration_report(expected, predicted)
     report["timing"] = timing
+    output_dir = Path(args.output).parent
+    write_jsonl(output_dir / "stage_1_calibration_predictions.jsonl", predicted)
+    write_calibration_comparison(
+        output_dir / "stage_1_calibration_comparison.csv",
+        expected,
+        predicted,
+    )
+    report["stage_outputs"] = {
+        "predictions": str(
+            output_dir / "stage_1_calibration_predictions.jsonl"
+        ),
+        "comparison": str(
+            output_dir / "stage_1_calibration_comparison.csv"
+        ),
+    }
     write_json(args.output, report)
     print(json.dumps(report, indent=2))
     if not report["passed"]:

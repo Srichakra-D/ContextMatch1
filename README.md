@@ -94,6 +94,14 @@ contextmatch evaluate-calibration \
   --output calibration/report.json
 ```
 
+This produces the **Stage 1 comparison outputs**:
+
+- `calibration/stage_1_calibration_predictions.jsonl`: complete Qwen
+  assessments for the 32 holdout candidates.
+- `calibration/stage_1_calibration_comparison.csv`: reviewed score versus
+  predicted score, absolute error, confidence, and disqualifier agreement.
+- `calibration/report.json`: aggregate calibration pass/fail metrics.
+
 Calibration passes when at least 80% of holdout totals are within 10 points,
 mean absolute error is at most 8, and no reviewed disqualifier is missed.
 Revise rubric wording or reviewed anchors before a final run if it fails.
@@ -118,6 +126,44 @@ The run:
 5. Combines 80% rubric score with 20% comparative percentile.
 6. Generates factual, unique, 8–49 word reasoning for the final 100.
 7. Writes intermediate JSONL artifacts and the final CSV.
+
+### Three-stage comparison outputs
+
+The pipeline preserves explicit outputs for each evaluation stage:
+
+**Stage 1 — Calibration evaluation**
+
+Located in `calibration/` after `evaluate-calibration`:
+
+- `stage_1_calibration_comparison.csv`
+- `stage_1_calibration_predictions.jsonl`
+- `report.json`
+
+This stage contains only the 32 reviewed holdout candidates. It measures
+whether Qwen follows the manually corrected scoring standard; it is not a
+ranking of all 641 candidates.
+
+**Stage 2 — Individual scoring and re-evaluation**
+
+Located in `runs/final/` after `contextmatch run`:
+
+- `stage_2_individual_ranking.csv`
+- `stage_2_individual_assessments.jsonl`
+
+The CSV contains all 641 candidates and shows initial-pass rank/score,
+post-repeat rank/score, rank movement, confidence, score caps, disqualifiers,
+and whether the candidate was repeated or adjudicated.
+
+**Stage 3 — Comparative reranking**
+
+Located in `runs/final/`:
+
+- `stage_3_comparative_ranking.csv`
+- `stage_3_comparative_assessments.jsonl`
+
+The CSV compares Stage 2 rank and score with final rank, comparative
+percentile, final score, rank movement, top-150 comparison participation, and
+top-100 selection.
 
 Validate independently:
 

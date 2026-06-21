@@ -78,6 +78,10 @@ def test_full_pipeline_with_fake_model(tmp_path, candidate_factory):
     assert report["initial_scoring"]["candidate_count"] == 100
     assert report["repeat_scoring"]["uncertain_count"] == 31
     assert (artifacts / "final_scores.jsonl").exists()
+    assert (artifacts / "stage_2_individual_ranking.csv").exists()
+    assert (artifacts / "stage_2_individual_assessments.jsonl").exists()
+    assert (artifacts / "stage_3_comparative_ranking.csv").exists()
+    assert (artifacts / "stage_3_comparative_assessments.jsonl").exists()
     assert validate_submission(
         output, {candidate["candidate_id"] for candidate in candidates}
     ) == []
