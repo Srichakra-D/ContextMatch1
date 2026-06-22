@@ -22,13 +22,20 @@ from .data import (
     write_jsonl,
 )
 from .llm import VLLMClient
-from .models import CalibrationReview, ScoredCandidate
+from .integrity import (
+    load_integrity_report,
+    load_knowledge_base,
+    scan_candidates,
+    write_integrity_outputs,
+)
+from .models import CalibrationReview, CandidateIntegrity, ScoredCandidate
 from .output import validate_submission
 from .pipeline import load_anchors, run_full_pipeline, score_candidates
 from .stage_outputs import write_calibration_comparison
 
 DEFAULT_SCHEMA = "India_runs_data_and_ai_challenge/candidate_schema.json"
 DEFAULT_MODEL = "qwen3-14b-awq"
+DEFAULT_KNOWLEDGE_BASE = "knowledge_base.json"
 
 
 def _load_and_validate(args: argparse.Namespace) -> list[dict]:
@@ -79,14 +86,55 @@ def _load_scores(path: str) -> list[ScoredCandidate]:
     return adapter.validate_python(read_jsonl(path))
 
 
+def _load_integrity_context(
+    knowledge_base_path: str,
+    integrity_report_path: str,
+    candidates: list[dict],
+    *,
+    allow_extra_records: bool = False,
+) -> dict[str, CandidateIntegrity]:
+    knowledge_base, knowledge_base_sha256 = load_knowledge_base(
+        knowledge_base_path
+    )
+    report = load_integrity_report(integrity_report_path)
+    candidate_ids = {candidate["candidate_id"] for candidate in candidates}
+    missing = candidate_ids - report.keys()
+    if missing:
+        raise ValueError(
+            f"integrity report is missing {len(missing)} candidate IDs"
+        )
+    extras = report.keys() - candidate_ids
+    if extras and not allow_extra_records:
+        raise ValueError(
+            f"integrity report contains {len(extras)} unexpected candidate IDs"
+        )
+    for record in report.values():
+        if record.knowledge_base_sha256 != knowledge_base_sha256:
+            raise ValueError(
+                "integrity report was produced with a different knowledge base"
+            )
+        if (
+            record.knowledge_base_schema_version
+            != knowledge_base["metadata"]["schema_version"]
+        ):
+            raise ValueError("integrity report knowledge-base version mismatch")
+    return {candidate_id: report[candidate_id] for candidate_id in candidate_ids}
+
+
 async def _score_command(args: argparse.Namespace) -> None:
     candidates = _load_and_validate(args)
+    integrity_by_id = _load_integrity_context(
+        args.knowledge_base,
+        args.integrity_report,
+        candidates,
+    )
     client = _client(args)
     try:
         scores, timing = await score_candidates(
             client,
             candidates,
             anchors=load_anchors(args.anchors),
+            integrity_by_id=integrity_by_id,
         )
     finally:
         await client.close()
@@ -99,12 +147,19 @@ async def _score_command(args: argparse.Namespace) -> None:
 async def _evaluate_command(args: argparse.Namespace) -> None:
     expected = json.loads(Path(args.holdout).read_text(encoding="utf-8"))
     candidates = [item["candidate"] for item in expected]
+    integrity_by_id = _load_integrity_context(
+        args.knowledge_base,
+        args.integrity_report,
+        candidates,
+        allow_extra_records=True,
+    )
     client = _client(args)
     try:
         predicted, timing = await score_candidates(
             client,
             candidates,
             anchors=load_anchors(args.anchors),
+            integrity_by_id=integrity_by_id,
         )
     finally:
         await client.close()
@@ -133,6 +188,9 @@ async def _evaluate_command(args: argparse.Namespace) -> None:
 
 async def _run_command(args: argparse.Namespace) -> None:
     candidates = _load_and_validate(args)
+    integrity_by_id = _load_integrity_context(
+        args.knowledge_base, args.integrity_report, candidates
+    )
     anchors = load_anchors(args.anchors)
     if len(anchors) != 8:
         raise ValueError(f"expected exactly 8 calibration anchors, found {len(anchors)}")
@@ -142,13 +200,20 @@ async def _run_command(args: argparse.Namespace) -> None:
             client,
             candidates,
             anchors=anchors,
+            integrity_by_id=integrity_by_id,
             output_csv=args.output,
             artifacts_dir=args.artifacts_dir,
         )
     finally:
         await client.close()
     errors = validate_submission(
-        args.output, {candidate["candidate_id"] for candidate in candidates}
+        args.output,
+        {candidate["candidate_id"] for candidate in candidates},
+        forbidden_candidate_ids={
+            candidate_id
+            for candidate_id, integrity in integrity_by_id.items()
+            if integrity.status.value == "verified_failure"
+        },
     )
     if errors:
         raise ValueError("generated submission failed validation:\n- " + "\n- ".join(errors))
@@ -162,10 +227,17 @@ def build_parser() -> argparse.ArgumentParser:
     validate = commands.add_parser("validate-input")
     _add_input_arguments(validate)
 
+    scan = commands.add_parser("scan-integrity")
+    _add_input_arguments(scan)
+    scan.add_argument("--knowledge-base", default=DEFAULT_KNOWLEDGE_BASE)
+    scan.add_argument("--output-dir", required=True)
+
     score = commands.add_parser("score")
     _add_input_arguments(score)
     _add_client_arguments(score)
     score.add_argument("--anchors")
+    score.add_argument("--knowledge-base", default=DEFAULT_KNOWLEDGE_BASE)
+    score.add_argument("--integrity-report", required=True)
     score.add_argument("--output", required=True)
     score.add_argument("--report")
 
@@ -185,18 +257,26 @@ def build_parser() -> argparse.ArgumentParser:
     _add_client_arguments(evaluate)
     evaluate.add_argument("--anchors", required=True)
     evaluate.add_argument("--holdout", required=True)
+    evaluate.add_argument("--knowledge-base", default=DEFAULT_KNOWLEDGE_BASE)
+    evaluate.add_argument("--integrity-report", required=True)
     evaluate.add_argument("--output", required=True)
 
     run = commands.add_parser("run")
     _add_input_arguments(run)
     _add_client_arguments(run)
     run.add_argument("--anchors", required=True)
+    run.add_argument("--knowledge-base", default=DEFAULT_KNOWLEDGE_BASE)
+    run.add_argument("--integrity-report", required=True)
     run.add_argument("--output", required=True)
     run.add_argument("--artifacts-dir", default="runs/latest")
 
     validate_output = commands.add_parser("validate-output")
     _add_input_arguments(validate_output)
     validate_output.add_argument("--submission", required=True)
+    validate_output.add_argument(
+        "--knowledge-base", default=DEFAULT_KNOWLEDGE_BASE
+    )
+    validate_output.add_argument("--integrity-report", required=True)
     return parser
 
 
@@ -207,6 +287,16 @@ def main() -> None:
         if args.command == "validate-input":
             candidates = _load_and_validate(args)
             print(f"Valid input: {len(candidates)} candidates")
+        elif args.command == "scan-integrity":
+            candidates = _load_and_validate(args)
+            knowledge_base, knowledge_base_sha256 = load_knowledge_base(
+                args.knowledge_base
+            )
+            records = scan_candidates(
+                candidates, knowledge_base, knowledge_base_sha256
+            )
+            summary = write_integrity_outputs(args.output_dir, records)
+            print(json.dumps(summary, indent=2))
         elif args.command == "score":
             asyncio.run(_score_command(args))
         elif args.command == "select-calibration":
@@ -240,9 +330,18 @@ def main() -> None:
             asyncio.run(_run_command(args))
         elif args.command == "validate-output":
             candidates = _load_and_validate(args)
+            integrity_by_id = _load_integrity_context(
+                args.knowledge_base, args.integrity_report, candidates
+            )
+            forbidden_ids = {
+                candidate_id
+                for candidate_id, integrity in integrity_by_id.items()
+                if integrity.status.value == "verified_failure"
+            }
             errors = validate_submission(
                 args.submission,
                 {candidate["candidate_id"] for candidate in candidates},
+                forbidden_candidate_ids=forbidden_ids,
             )
             if errors:
                 raise ValueError("submission validation failed:\n- " + "\n- ".join(errors))

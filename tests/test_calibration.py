@@ -7,6 +7,7 @@ from contextmatch.models import (
     CalibrationReview,
     CandidateAssessment,
     DimensionScores,
+    IntegrityStatus,
     ScoredCandidate,
 )
 
@@ -90,3 +91,24 @@ def test_calibration_report_passes_close_predictions(candidate_factory):
             )
         )
     assert calibration_report(expected, predicted)["passed"] is True
+
+
+def test_calibration_excludes_verified_failures(candidate_factory):
+    candidates = [candidate_factory(index) for index in range(1, 9)]
+    scores = []
+    for candidate in candidates:
+        assessment = make_assessment(candidate["candidate_id"], 50)
+        scores.append(
+            ScoredCandidate(
+                candidate_id=candidate["candidate_id"],
+                assessment=assessment,
+                rubric_score=50,
+            )
+        )
+    scores[0].integrity_status = IntegrityStatus.VERIFIED_FAILURE
+    reviews = select_calibration_reviews(
+        {item["candidate_id"]: item for item in candidates}, scores, size=6
+    )
+    assert scores[0].candidate_id not in {
+        review.candidate_id for review in reviews
+    }

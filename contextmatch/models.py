@@ -66,6 +66,35 @@ class ComparisonResult(BaseModel):
     ordered_candidate_ids: list[str] = Field(min_length=2)
 
 
+class IntegrityStatus(str, Enum):
+    CLEAN = "clean"
+    SUSPICIOUS = "suspicious"
+    VERIFIED_FAILURE = "verified_failure"
+
+
+class IntegrityFinding(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    rule: str
+    severity: str = Field(pattern="^(suspicious|verified_failure)$")
+    message: str
+    entity_type: str | None = None
+    entity_name: str | None = None
+    fact_date: str | None = None
+    fact_date_precision: str | None = None
+    sources: list[dict[str, str]] = Field(default_factory=list)
+
+
+class CandidateIntegrity(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    candidate_id: str = Field(pattern=r"^CAND_[0-9]{7}$")
+    status: IntegrityStatus
+    findings: list[IntegrityFinding] = Field(default_factory=list)
+    knowledge_base_schema_version: int
+    knowledge_base_sha256: str
+
+
 class ScoredCandidate(BaseModel):
     candidate_id: str
     assessment: CandidateAssessment
@@ -74,6 +103,10 @@ class ScoredCandidate(BaseModel):
     model_name: str = ""
     applied_cap: int | None = None
     integrity_issues: list[str] = Field(default_factory=list)
+    integrity_status: IntegrityStatus = IntegrityStatus.CLEAN
+    integrity_findings: list[IntegrityFinding] = Field(default_factory=list)
+    knowledge_base_schema_version: int | None = None
+    knowledge_base_sha256: str | None = None
     repeated_assessment: CandidateAssessment | None = None
     adjudicated_assessment: CandidateAssessment | None = None
     comparative_percentile: float | None = None

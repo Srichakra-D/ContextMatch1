@@ -45,6 +45,7 @@ def write_calibration_comparison(
                 "predicted_disqualifiers": "|".join(predicted_flags),
                 "disqualifiers_match": expected_flags == predicted_flags,
                 "predicted_confidence": actual.assessment.confidence,
+                "integrity_status": actual.integrity_status.value,
             }
         )
     _write_csv(
@@ -59,6 +60,7 @@ def write_calibration_comparison(
             "predicted_disqualifiers",
             "disqualifiers_match",
             "predicted_confidence",
+            "integrity_status",
         ],
         rows,
     )
@@ -98,6 +100,24 @@ def write_individual_ranking(
                     flag.value for flag in current.disqualifiers
                 ),
                 "integrity_issue_count": len(item.integrity_issues),
+                "integrity_status": item.integrity_status.value,
+                "integrity_reasons": "|".join(
+                    finding.message for finding in item.integrity_findings
+                ),
+                "knowledge_facts_used": "|".join(
+                    sorted(
+                        {
+                            f"{finding.entity_type}:{finding.entity_name}"
+                            for finding in item.integrity_findings
+                            if finding.entity_type and finding.entity_name
+                        }
+                    )
+                ),
+                "knowledge_base_schema_version": (
+                    ""
+                    if item.knowledge_base_schema_version is None
+                    else item.knowledge_base_schema_version
+                ),
             }
         )
     _write_csv(
@@ -115,6 +135,10 @@ def write_individual_ranking(
             "applied_cap",
             "disqualifiers",
             "integrity_issue_count",
+            "integrity_status",
+            "integrity_reasons",
+            "knowledge_facts_used",
+            "knowledge_base_schema_version",
         ],
         rows,
     )
@@ -150,6 +174,10 @@ def write_comparative_ranking(
                 "rank_change": previous_rank - final_rank,
                 "compared_in_top_group": previous_rank <= comparative_top_n,
                 "selected_top_100": final_rank <= 100,
+                "integrity_status": item.integrity_status.value,
+                "integrity_reasons": "|".join(
+                    finding.message for finding in item.integrity_findings
+                ),
             }
         )
     _write_csv(
@@ -164,6 +192,8 @@ def write_comparative_ranking(
             "rank_change",
             "compared_in_top_group",
             "selected_top_100",
+            "integrity_status",
+            "integrity_reasons",
         ],
         rows,
     )

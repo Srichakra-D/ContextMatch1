@@ -156,6 +156,24 @@ calibration remains inconsistent after correction.
 The system preserves separate outputs for three stages so their scores and rank
 changes can be compared.
 
+### Integrity stage
+
+Before calibration or Qwen scoring, scan all 641 candidates using
+`knowledge_base.json`.
+
+This implementation phase is intentionally limited to `top_700.jsonl`.
+Scanning or ranking the original 100,000-candidate file is out of scope.
+
+- `verified_failure`: assign score zero and skip Qwen.
+- `suspicious`: retain for audit, apply no penalty, and hide the warning from
+  Qwen.
+- `clean`: continue normally.
+
+The current integrity scan identifies 60 verified failures, 207 suspicious
+candidates, and 374 clean candidates. Generate a new 40-candidate calibration
+set after this scan; do not reuse calibration created before integrity
+integration.
+
 ### Stage 1: calibration evaluation
 
 After the 40 manual reviews are split into eight anchors and 32 holdout
@@ -183,6 +201,9 @@ The model returns:
 - Disqualifier flags.
 - Confidence.
 
+Verified failures do not invoke Qwen and cannot be selected as calibration
+anchors. Suspicious candidates are evaluated exactly like clean candidates.
+
 ### Repeat uncertain candidates
 
 Run a second assessment for:
@@ -204,6 +225,9 @@ whether repeat scoring or adjudication occurred.
 
 Take the leading 150 candidates and compare them in overlapping randomized
 groups of ten.
+
+Verified failures are excluded from comparison groups and cannot enter the
+final top 100.
 
 Run three comparison rounds and aggregate group preferences into a comparative
 percentile.

@@ -4,6 +4,10 @@ __pycache__/
 .venv/
 runs/
 calibration/
-*.csv
+
 .DS_Store
 PROJECT_HANDOFF.md
+verification/
+Final_Results/common_candidate_ranks.csv
+Final_Results/compare_candidate_ids.py
+t.json

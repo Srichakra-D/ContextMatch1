@@ -47,6 +47,7 @@ def validate_submission(
     valid_candidate_ids: set[str],
     *,
     expected_rows: int = 100,
+    forbidden_candidate_ids: set[str] | None = None,
 ) -> list[str]:
     errors: list[str] = []
     with Path(path).open("r", encoding="utf-8", newline="") as handle:
@@ -72,6 +73,10 @@ def validate_submission(
             errors.append(f"row {line_number}: invalid candidate_id")
         elif cid not in valid_candidate_ids:
             errors.append(f"row {line_number}: unknown candidate_id {cid}")
+        elif forbidden_candidate_ids and cid in forbidden_candidate_ids:
+            errors.append(
+                f"row {line_number}: verified integrity failure {cid} is forbidden"
+            )
         elif cid in seen_ids:
             errors.append(f"row {line_number}: duplicate candidate_id {cid}")
         seen_ids.add(cid)

@@ -46,7 +46,7 @@ The server uses an 8K context, prefix caching, structured JSON, and a reasoning
 parser. Bulk requests explicitly disable thinking; only disqualifier
 adjudication enables it.
 
-## 2. Validate and create the calibration set
+## 2. Validate and scan integrity
 
 Place the full shortlisted records at `top_700.jsonl`. The current file
 contains 641 valid, unique records. Commands accept any valid count by default;
@@ -54,18 +54,57 @@ pass `--expected-count 641` when an exact count check is desired.
 
 ```bash
 contextmatch validate-input --input top_700.jsonl --expected-count 641
+```
 
+Run the deterministic knowledge-base integrity scan before starting Qwen:
+
+```bash
+contextmatch scan-integrity \
+  --input top_700.jsonl \
+  --expected-count 641 \
+  --knowledge-base knowledge_base.json \
+  --output-dir runs/integrity
+```
+
+This creates:
+
+```text
+runs/integrity/integrity_report.jsonl
+runs/integrity/verified_failures.jsonl
+runs/integrity/suspicious_candidates.jsonl
+runs/integrity/summary.json
+```
+
+Only `verified_failure` receives score zero. Suspicious findings are retained
+for audit but are hidden from Qwen and cause no penalty. The current scan
+reports 60 verified failures, 207 suspicious candidates, and 374 clean
+candidates.
+
+## 3. Create a fresh calibration set
+
+The old calibration must not be reused because integrity filtering changes the
+eligible population. Run initial scoring with the integrity report:
+
+```bash
 contextmatch score \
   --input top_700.jsonl \
+  --expected-count 641 \
+  --knowledge-base knowledge_base.json \
+  --integrity-report runs/integrity/integrity_report.jsonl \
   --output runs/calibration/initial_scores.jsonl \
   --report runs/calibration/initial_timing.json
 
 contextmatch select-calibration \
   --input top_700.jsonl \
+  --expected-count 641 \
   --scores runs/calibration/initial_scores.jsonl \
   --size 40 \
   --output calibration/reviews.json
 ```
+
+Verified failures skip Qwen and receive deterministic score zero.
+`select-calibration` excludes them while keeping suspicious candidates fully
+eligible.
 
 Open `calibration/reviews.json`. For every record:
 
@@ -91,6 +130,8 @@ Evaluate prompt calibration:
 contextmatch evaluate-calibration \
   --anchors calibration/anchors.json \
   --holdout calibration/holdout.json \
+  --knowledge-base knowledge_base.json \
+  --integrity-report runs/integrity/integrity_report.jsonl \
   --output calibration/report.json
 ```
 
@@ -106,26 +147,31 @@ Calibration passes when at least 80% of holdout totals are within 10 points,
 mean absolute error is at most 8, and no reviewed disqualifier is missed.
 Revise rubric wording or reviewed anchors before a final run if it fails.
 
-## 3. Rank and export
+## 4. Rank and export
 
 ```bash
 contextmatch run \
   --input top_700.jsonl \
+  --expected-count 641 \
   --anchors calibration/anchors.json \
+  --knowledge-base knowledge_base.json \
+  --integrity-report runs/integrity/integrity_report.jsonl \
   --output team_xxx.csv \
   --artifacts-dir runs/final
 ```
 
 The run:
 
-1. Scores all candidates once.
-2. Repeats ranks 70–180, confidence below 0.75, and conflicting cases.
-3. Uses thinking-mode adjudication when disqualifier flags disagree.
-4. Comparatively reranks the leading 150 in three randomized rounds of groups
-   of ten.
-5. Combines 80% rubric score with 20% comparative percentile.
-6. Generates factual, unique, 8–49 word reasoning for the final 100.
-7. Writes intermediate JSONL artifacts and the final CSV.
+1. Assigns verified failures score zero without calling Qwen.
+2. Scores clean and suspicious candidates normally; suspicious warnings are
+   not shown to Qwen.
+3. Repeats ranks 70–180, confidence below 0.75, and conflicting cases.
+4. Uses thinking-mode adjudication when disqualifier flags disagree.
+5. Comparatively reranks the leading 150 eligible candidates in three
+   randomized rounds of groups of ten.
+6. Combines 80% rubric score with 20% comparative percentile.
+7. Generates factual, unique, 8–49 word reasoning for the final 100.
+8. Rejects the output if a verified failure enters the top 100.
 
 ### Three-stage comparison outputs
 
@@ -152,7 +198,8 @@ Located in `runs/final/` after `contextmatch run`:
 
 The CSV contains all 641 candidates and shows initial-pass rank/score,
 post-repeat rank/score, rank movement, confidence, score caps, disqualifiers,
-and whether the candidate was repeated or adjudicated.
+integrity status/reasons, knowledge facts, and whether the candidate was
+repeated or adjudicated.
 
 **Stage 3 — Comparative reranking**
 
@@ -170,6 +217,9 @@ Validate independently:
 ```bash
 contextmatch validate-output \
   --input top_700.jsonl \
+  --expected-count 641 \
+  --knowledge-base knowledge_base.json \
+  --integrity-report runs/integrity/integrity_report.jsonl \
   --submission team_xxx.csv
 
 python India_runs_data_and_ai_challenge/validate_submission.py team_xxx.csv
@@ -184,7 +234,10 @@ Start with concurrency 16, then benchmark 8, 16, and 32:
 ```bash
 contextmatch score \
   --input top_700.jsonl \
+  --expected-count 641 \
   --anchors calibration/anchors.json \
+  --knowledge-base knowledge_base.json \
+  --integrity-report runs/integrity/integrity_report.jsonl \
   --concurrency 16 \
   --output runs/benchmark.jsonl \
   --report runs/benchmark.json

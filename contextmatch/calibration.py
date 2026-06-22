@@ -3,12 +3,12 @@ from __future__ import annotations
 from collections import defaultdict
 from typing import Any
 
-from .models import CalibrationReview, ScoredCandidate
+from .models import CalibrationReview, IntegrityStatus, ScoredCandidate
 
 
 def score_stratum(scored: ScoredCandidate) -> str:
-    if scored.integrity_issues:
-        return "integrity-risk"
+    if scored.integrity_status == IntegrityStatus.SUSPICIOUS:
+        return "suspicious"
     if scored.assessment.disqualifiers:
         return "disqualified"
     if scored.rubric_score >= 80:
@@ -29,6 +29,8 @@ def select_calibration_reviews(
         raise ValueError("calibration size must be at least 6")
     buckets: dict[str, list[ScoredCandidate]] = defaultdict(list)
     for scored in sorted(scores, key=lambda item: (-item.rubric_score, item.candidate_id)):
+        if scored.integrity_status == IntegrityStatus.VERIFIED_FAILURE:
+            continue
         buckets[score_stratum(scored)].append(scored)
 
     order = [
@@ -37,7 +39,7 @@ def select_calibration_reviews(
         "borderline",
         "weak",
         "disqualified",
-        "integrity-risk",
+        "suspicious",
     ]
     selected: list[ScoredCandidate] = []
     cursor = 0
@@ -56,7 +58,10 @@ def select_calibration_reviews(
     already = {item.candidate_id for item in selected}
     if len(selected) < size:
         for scored in sorted(scores, key=lambda item: item.candidate_id):
-            if scored.candidate_id not in already:
+            if (
+                scored.integrity_status != IntegrityStatus.VERIFIED_FAILURE
+                and scored.candidate_id not in already
+            ):
                 selected.append(scored)
                 if len(selected) == size:
                     break

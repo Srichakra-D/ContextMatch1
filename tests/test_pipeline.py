@@ -1,10 +1,13 @@
 import asyncio
+import csv
 import json
 
 from contextmatch.models import (
     CandidateAssessment,
+    CandidateIntegrity,
     ComparisonResult,
     DimensionScores,
+    IntegrityStatus,
     ReasoningResult,
 )
 from contextmatch.output import validate_submission
@@ -71,6 +74,15 @@ def test_full_pipeline_with_fake_model(tmp_path, candidate_factory):
             FakeClient(),
             candidates,
             anchors=[],
+            integrity_by_id={
+                candidate["candidate_id"]: CandidateIntegrity(
+                    candidate_id=candidate["candidate_id"],
+                    status=IntegrityStatus.CLEAN,
+                    knowledge_base_schema_version=1,
+                    knowledge_base_sha256="abc",
+                )
+                for candidate in candidates
+            },
             output_csv=output,
             artifacts_dir=artifacts,
         )
@@ -85,3 +97,35 @@ def test_full_pipeline_with_fake_model(tmp_path, candidate_factory):
     assert validate_submission(
         output, {candidate["candidate_id"] for candidate in candidates}
     ) == []
+
+
+def test_verified_failure_cannot_enter_final_output(tmp_path, candidate_factory):
+    candidates = [candidate_factory(index) for index in range(1, 102)]
+    failed_id = candidates[0]["candidate_id"]
+    integrity = {
+        candidate["candidate_id"]: CandidateIntegrity(
+            candidate_id=candidate["candidate_id"],
+            status=(
+                IntegrityStatus.VERIFIED_FAILURE
+                if candidate["candidate_id"] == failed_id
+                else IntegrityStatus.CLEAN
+            ),
+            knowledge_base_schema_version=1,
+            knowledge_base_sha256="abc",
+        )
+        for candidate in candidates
+    }
+    output = tmp_path / "team.csv"
+    asyncio.run(
+        run_full_pipeline(
+            FakeClient(),
+            candidates,
+            anchors=[],
+            integrity_by_id=integrity,
+            output_csv=output,
+            artifacts_dir=tmp_path / "artifacts",
+        )
+    )
+    with output.open(newline="", encoding="utf-8") as handle:
+        ids = {row["candidate_id"] for row in csv.DictReader(handle)}
+    assert failed_id not in ids

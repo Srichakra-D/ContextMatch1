@@ -6,11 +6,13 @@ from pathlib import Path
 from typing import Any
 
 from .data import candidate_by_id, write_json, write_jsonl
-from .integrity import verified_integrity_issues
 from .llm import VLLMClient, gather_with_timing
 from .models import (
     CandidateAssessment,
+    CandidateIntegrity,
     ComparisonResult,
+    DimensionScores,
+    IntegrityStatus,
     ReasoningResult,
     ScoredCandidate,
 )
@@ -35,11 +37,52 @@ async def score_candidates(
     candidates: list[dict[str, Any]],
     *,
     anchors: list[dict[str, Any]] | None = None,
+    integrity_by_id: dict[str, CandidateIntegrity] | None = None,
     thinking: bool = False,
     extra_instructions: dict[str, str] | None = None,
 ) -> tuple[list[ScoredCandidate], dict[str, float]]:
     async def score_one(candidate: dict[str, Any]) -> ScoredCandidate:
         cid = candidate["candidate_id"]
+        integrity = (integrity_by_id or {}).get(cid)
+        if integrity and integrity.status == IntegrityStatus.VERIFIED_FAILURE:
+            assessment = CandidateAssessment(
+                candidate_id=cid,
+                dimensions=DimensionScores(
+                    retrieval_ranking=0,
+                    evaluation_experimentation=0,
+                    production_ml_python=0,
+                    product_shipping_outcomes=0,
+                    ownership_seniority=0,
+                    nlp_llm_secondary=0,
+                    logistics_engagement=0,
+                ),
+                evidence=[
+                    "Deterministic integrity verification found an impossible profile claim."
+                ],
+                concerns=[finding.message for finding in integrity.findings[:5]],
+                conflicting_evidence=True,
+                confidence=1.0,
+            )
+            return ScoredCandidate(
+                candidate_id=cid,
+                assessment=assessment,
+                rubric_score=0.0,
+                rubric_version=RUBRIC_VERSION,
+                model_name="deterministic-integrity",
+                applied_cap=0,
+                integrity_issues=[
+                    finding.message
+                    for finding in integrity.findings
+                    if finding.severity == "verified_failure"
+                ],
+                integrity_status=integrity.status,
+                integrity_findings=integrity.findings,
+                knowledge_base_schema_version=(
+                    integrity.knowledge_base_schema_version
+                ),
+                knowledge_base_sha256=integrity.knowledge_base_sha256,
+                final_score=0.0,
+            )
         assessment = await client.complete_json(
             scoring_messages(
                 candidate,
@@ -55,8 +98,7 @@ async def score_candidates(
             raise ValueError(
                 f"model returned {assessment.candidate_id} while scoring {cid}"
             )
-        issues = verified_integrity_issues(candidate)
-        score, cap = calculate_score(assessment, issues)
+        score, cap = calculate_score(assessment)
         return ScoredCandidate(
             candidate_id=cid,
             assessment=assessment,
@@ -64,15 +106,31 @@ async def score_candidates(
             rubric_version=RUBRIC_VERSION,
             model_name=client.model,
             applied_cap=cap,
-            integrity_issues=issues,
+            integrity_issues=[],
+            integrity_status=(
+                integrity.status if integrity else IntegrityStatus.CLEAN
+            ),
+            integrity_findings=integrity.findings if integrity else [],
+            knowledge_base_schema_version=(
+                integrity.knowledge_base_schema_version if integrity else None
+            ),
+            knowledge_base_sha256=(
+                integrity.knowledge_base_sha256 if integrity else None
+            ),
             final_score=score,
         )
 
     results, elapsed = await gather_with_timing(
         [score_one(candidate) for candidate in candidates]
     )
+    verified_failure_count = sum(
+        item.integrity_status == IntegrityStatus.VERIFIED_FAILURE
+        for item in results
+    )
     return results, {
         "candidate_count": len(results),
+        "model_candidate_count": len(results) - verified_failure_count,
+        "skipped_verified_failures": verified_failure_count,
         "elapsed_seconds": round(elapsed, 3),
         "seconds_per_candidate": round(elapsed / max(len(results), 1), 4),
     }
@@ -83,6 +141,7 @@ async def repeat_uncertain_scores(
     candidates_by_id: dict[str, dict[str, Any]],
     scores: list[ScoredCandidate],
     anchors: list[dict[str, Any]],
+    integrity_by_id: dict[str, CandidateIntegrity] | None = None,
 ) -> dict[str, Any]:
     initial_order = sorted(scores, key=lambda item: (-item.rubric_score, item.candidate_id))
     rank_by_id = {
@@ -91,14 +150,18 @@ async def repeat_uncertain_scores(
     uncertain = [
         item
         for item in scores
-        if 70 <= rank_by_id[item.candidate_id] <= 180
+        if item.integrity_status != IntegrityStatus.VERIFIED_FAILURE
+        and (
+            70 <= rank_by_id[item.candidate_id] <= 180
         or item.assessment.confidence < 0.75
         or item.assessment.conflicting_evidence
+        )
     ]
     repeated, timing = await score_candidates(
         client,
         [candidates_by_id[item.candidate_id] for item in uncertain],
         anchors=anchors,
+        integrity_by_id=integrity_by_id,
     )
     repeated_by_id = {item.candidate_id: item for item in repeated}
     disagreements: list[ScoredCandidate] = []
@@ -127,6 +190,7 @@ async def repeat_uncertain_scores(
             client,
             [candidates_by_id[item.candidate_id] for item in disagreements],
             anchors=anchors,
+            integrity_by_id=integrity_by_id,
             thinking=True,
             extra_instructions=instructions,
         )
@@ -157,9 +221,14 @@ async def comparative_rerank(
     group_size: int = 10,
     rounds: int = 3,
 ) -> dict[str, Any]:
-    leaders = sorted(scores, key=lambda item: (-item.rubric_score, item.candidate_id))[
-        :top_n
-    ]
+    leaders = sorted(
+        scores, key=lambda item: (-item.rubric_score, item.candidate_id)
+    )
+    leaders = [
+        item
+        for item in leaders
+        if item.integrity_status != IntegrityStatus.VERIFIED_FAILURE
+    ][:top_n]
     scored_by_id = {item.candidate_id: item for item in leaders}
     groups = make_comparison_groups(
         [item.candidate_id for item in leaders],
@@ -260,6 +329,7 @@ async def run_full_pipeline(
     candidates: list[dict[str, Any]],
     *,
     anchors: list[dict[str, Any]],
+    integrity_by_id: dict[str, CandidateIntegrity],
     output_csv: str | Path,
     artifacts_dir: str | Path,
 ) -> dict[str, Any]:
@@ -269,7 +339,10 @@ async def run_full_pipeline(
     started = time.perf_counter()
 
     scores, initial_timing = await score_candidates(
-        client, candidates, anchors=anchors
+        client,
+        candidates,
+        anchors=anchors,
+        integrity_by_id=integrity_by_id,
     )
     write_jsonl(artifacts / "initial_scores.jsonl", scores)
     initial_ranked = sorted(
@@ -281,7 +354,11 @@ async def run_full_pipeline(
     }
 
     repeat_report = await repeat_uncertain_scores(
-        client, candidates_by_id, scores, anchors
+        client,
+        candidates_by_id,
+        scores,
+        anchors,
+        integrity_by_id,
     )
     write_jsonl(artifacts / "post_repeat_scores.jsonl", scores)
     individual_ranked = write_individual_ranking(
@@ -305,6 +382,11 @@ async def run_full_pipeline(
             item.candidate_id,
         ),
     )
+    if any(
+        item.integrity_status == IntegrityStatus.VERIFIED_FAILURE
+        for item in ranked[:100]
+    ):
+        raise ValueError("verified integrity failure entered the provisional top 100")
     write_jsonl(artifacts / "final_scores.jsonl", ranked)
     write_comparative_ranking(
         artifacts / "stage_3_comparative_ranking.csv",
@@ -325,6 +407,28 @@ async def run_full_pipeline(
     report = {
         "model_name": client.model,
         "rubric_version": RUBRIC_VERSION,
+        "integrity_status_counts": {
+            status.value: sum(
+                item.integrity_status == status for item in scores
+            )
+            for status in IntegrityStatus
+        },
+        "knowledge_base_schema_version": next(
+            (
+                item.knowledge_base_schema_version
+                for item in scores
+                if item.knowledge_base_schema_version is not None
+            ),
+            None,
+        ),
+        "knowledge_base_sha256": next(
+            (
+                item.knowledge_base_sha256
+                for item in scores
+                if item.knowledge_base_sha256 is not None
+            ),
+            None,
+        ),
         "initial_scoring": initial_timing,
         "repeat_scoring": repeat_report,
         "comparative_rerank": rerank_report,

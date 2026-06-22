@@ -50,3 +50,19 @@ def test_validator_rejects_nonfinite_score(tmp_path):
     )
     errors = validate_submission(path, {"CAND_0000001"}, expected_rows=1)
     assert any("finite" in error for error in errors)
+
+
+def test_validator_rejects_verified_failure(tmp_path):
+    path = tmp_path / "bad.csv"
+    path.write_text(
+        "candidate_id,rank,score,reasoning\n"
+        "CAND_0000001,1,10.0,This candidate has enough factual words for validation today.\n",
+        encoding="utf-8",
+    )
+    errors = validate_submission(
+        path,
+        {"CAND_0000001"},
+        expected_rows=1,
+        forbidden_candidate_ids={"CAND_0000001"},
+    )
+    assert any("verified integrity failure" in error for error in errors)
