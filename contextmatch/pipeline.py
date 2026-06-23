@@ -91,7 +91,7 @@ async def score_candidates(
             ),
             CandidateAssessment,
             temperature=0 if not thinking else 0.1,
-            max_tokens=800 if not thinking else 1400,
+            max_tokens=800 if not thinking else 4000,
             thinking=thinking,
         )
         if assessment.candidate_id != cid:
@@ -251,6 +251,9 @@ async def comparative_rerank(
         if len(result.ordered_candidate_ids) != len(group) or set(
             result.ordered_candidate_ids
         ) != set(group):
+            missing = [c for c in group if c not in result.ordered_candidate_ids]
+            if missing:
+                return result.ordered_candidate_ids + missing
             raise ValueError("comparison response must contain each group ID once")
         return result.ordered_candidate_ids
 

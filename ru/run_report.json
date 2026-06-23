@@ -1,0 +1,41 @@
+{
+  "model_name": "qwen3-14b-awq",
+  "rubric_version": "redrob-v1",
+  "initial_scoring": {
+    "candidate_count": 641,
+    "elapsed_seconds": 1405.068,
+    "seconds_per_candidate": 2.192
+  },
+  "repeat_scoring": {
+    "repeated": {
+      "candidate_count": 449,
+      "elapsed_seconds": 987.139,
+      "seconds_per_candidate": 2.1985
+    },
+    "adjudicated": {
+      "candidate_count": 8,
+      "elapsed_seconds": 30.859,
+      "seconds_per_candidate": 3.8574
+    },
+    "uncertain_count": 449,
+    "disagreement_count": 8
+  },
+  "comparative_rerank": {
+    "candidate_count": 150,
+    "group_count": 45,
+    "elapsed_seconds": 123.424
+  },
+  "reasoning": {
+    "candidate_count": 100,
+    "elapsed_seconds": 61.776,
+    "fallback_count": 4
+  },
+  "stage_outputs": {
+    "stage_2_individual_ranking": "ru/stage_2_individual_ranking.csv",
+    "stage_2_individual_assessments": "ru/stage_2_individual_assessments.jsonl",
+    "stage_3_comparative_ranking": "ru/stage_3_comparative_ranking.csv",
+    "stage_3_comparative_assessments": "ru/stage_3_comparative_assessments.jsonl"
+  },
+  "total_elapsed_seconds": 2608.509,
+  "output_csv": "team_xxx.csv"
+}

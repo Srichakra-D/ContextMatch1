@@ -70,11 +70,13 @@ class VLLMClient:
                             }
                         },
                     )
-                content = completion.choices[0].message.content
+                content = completion.choices[0].message.content or completion.choices[0].message.reasoning
+                print(f"DEBUG CONTENT: finish_reason={completion.choices[0].finish_reason!r} content={content!r}", flush=True)
                 if not content:
                     raise ValueError("model returned empty content")
                 return result_type.model_validate(json.loads(content))
             except Exception as exc:  # API and validation errors are retriable.
+                print(f"DEBUG ERROR: {type(exc).__name__}: {exc}", flush=True)
                 last_error = exc
                 if attempt + 1 < self.retries:
                     await asyncio.sleep(2**attempt)
