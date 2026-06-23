@@ -41,12 +41,20 @@ def _file_sha256(path: str | Path) -> str:
 def load_knowledge_base(path: str | Path) -> tuple[dict[str, Any], str]:
     source = Path(path)
     knowledge_base = json.loads(source.read_text(encoding="utf-8"))
-    required = {"metadata", "companies", "technologies", "certifications"}
+    required = {
+        "schema_version",
+        "as_of",
+        "reference_date",
+        "companies",
+        "technologies",
+        "certifications",
+    }
     if set(knowledge_base) != required:
         raise ValueError(
-            "knowledge base must contain metadata, companies, technologies, "
-            "and certifications"
+            "knowledge base does not match compact schema version 2"
         )
+    if knowledge_base["schema_version"] != 2:
+        raise ValueError("knowledge base schema_version must be 2")
     return knowledge_base, _file_sha256(source)
 
 
@@ -61,19 +69,21 @@ def load_integrity_report(
     return result
 
 
-def _fact_date(entry: dict[str, Any]) -> date:
-    value = entry["date"]
+def _fact_date(entry: dict[str, Any], field: str) -> date:
+    value = entry[field]
     year = int(value[:4])
     month = int(value[5:7]) if len(value) >= 7 else 1
     day = int(value[8:10]) if len(value) >= 10 else 1
     return date(year, month, day)
 
 
-def _strictly_before(candidate_date: date, entry: dict[str, Any]) -> bool:
-    fact = _fact_date(entry)
-    if entry["date_precision"] == "year":
+def _strictly_before(
+    candidate_date: date, entry: dict[str, Any], field: str
+) -> bool:
+    fact = _fact_date(entry, field)
+    if entry["precision"] == "year":
         return candidate_date.year < fact.year
-    if entry["date_precision"] == "month":
+    if entry["precision"] == "month":
         return (candidate_date.year, candidate_date.month) < (
             fact.year,
             fact.month,
@@ -89,6 +99,7 @@ def _finding(
     entity_type: str | None = None,
     entity_name: str | None = None,
     fact: dict[str, Any] | None = None,
+    date_field: str | None = None,
 ) -> IntegrityFinding:
     return IntegrityFinding(
         rule=rule,
@@ -96,9 +107,18 @@ def _finding(
         message=message,
         entity_type=entity_type,
         entity_name=entity_name,
-        fact_date=fact.get("date") if fact else None,
-        fact_date_precision=fact.get("date_precision") if fact else None,
-        sources=fact.get("sources", []) if fact else [],
+        fact_date=fact.get(date_field) if fact and date_field else None,
+        fact_date_precision=fact.get("precision") if fact else None,
+        sources=(
+            [
+                {
+                    "url": fact["source"],
+                    "source_type": fact["source_type"],
+                }
+            ]
+            if fact
+            else []
+        ),
     )
 
 
@@ -190,8 +210,7 @@ def scan_candidate_integrity(
         company_fact = knowledge_base["companies"].get(company)
         if (
             company_fact
-            and company_fact["status"] == "verified"
-            and _strictly_before(start, company_fact)
+            and _strictly_before(start, company_fact, "founded_date")
         ):
             findings.append(
                 _finding(
@@ -199,23 +218,25 @@ def scan_candidate_integrity(
                     severity="verified_failure",
                     message=(
                         f"Employment at {company} starts {start}, before its "
-                        f"verified earliest start {company_fact['date']}."
+                        f"verified earliest start {company_fact['founded_date']}."
                     ),
                     entity_type="company",
                     entity_name=company,
                     fact=company_fact,
+                    date_field="founded_date",
                 )
             )
 
-        description = (role.get("description") or "").casefold()
+        description = role.get("description") or ""
         for technology_name, technology_fact in technology_entries.items():
-            if technology_fact["status"] != "verified":
-                continue
             if technology_name in AMBIGUOUS_ROLE_TEXT_TECHNOLOGIES:
                 continue
-            names = [technology_name, *technology_fact.get("aliases", [])]
-            if _matches_entity(description, names) and _strictly_before(
-                end, technology_fact
+            patterns = technology_fact["patterns"]
+            if any(
+                re.search(pattern, description, re.IGNORECASE)
+                for pattern in patterns
+            ) and _strictly_before(
+                end, technology_fact, "released_date"
             ):
                 findings.append(
                     _finding(
@@ -223,11 +244,12 @@ def scan_candidate_integrity(
                         severity="verified_failure",
                         message=(
                             f"Role ending {end} explicitly claims {technology_name}, "
-                            f"released {technology_fact['date']}."
+                            f"released {technology_fact['released_date']}."
                         ),
                         entity_type="technology",
                         entity_name=technology_name,
                         fact=technology_fact,
+                        date_field="released_date",
                     )
                 )
 
@@ -255,11 +277,10 @@ def scan_candidate_integrity(
         duration = skill.get("duration_months")
         if (
             not technology_fact
-            or technology_fact["status"] != "verified"
             or not isinstance(duration, int)
         ):
             continue
-        release = _fact_date(technology_fact)
+        release = _fact_date(technology_fact, "released_date")
         possible = (
             _months_between(release, REFERENCE_DATE)
             + SKILL_DURATION_TOLERANCE_MONTHS
@@ -272,11 +293,12 @@ def scan_candidate_integrity(
                     message=(
                         f"{skill['name']} claims {duration} months of use, while "
                         f"approximately {possible} months are possible since "
-                        f"{technology_fact['date']}."
+                        f"{technology_fact['released_date']}."
                     ),
                     entity_type="technology",
                     entity_name=skill["name"],
                     fact=technology_fact,
+                    date_field="released_date",
                 )
             )
 
@@ -285,8 +307,8 @@ def scan_candidate_integrity(
         certification_fact = knowledge_base["certifications"].get(key)
         if (
             certification_fact
-            and certification_fact["status"] == "verified"
-            and certification["year"] < int(certification_fact["date"][:4])
+            and certification["year"]
+            < int(certification_fact["available_date"][:4])
         ):
             findings.append(
                 _finding(
@@ -295,12 +317,13 @@ def scan_candidate_integrity(
                     message=(
                         f"{certification['name']} is dated {certification['year']}, "
                         f"before verified availability in "
-                        f"{certification_fact['date']}; year-level synthetic "
+                        f"{certification_fact['available_date']}; year-level synthetic "
                         "metadata is retained for audit only."
                     ),
                     entity_type="certification",
                     entity_name=key,
                     fact=certification_fact,
+                    date_field="available_date",
                 )
             )
 
@@ -315,7 +338,7 @@ def scan_candidate_integrity(
         candidate_id=candidate["candidate_id"],
         status=status,
         findings=findings,
-        knowledge_base_schema_version=knowledge_base["metadata"]["schema_version"],
+        knowledge_base_schema_version=knowledge_base["schema_version"],
         knowledge_base_sha256=knowledge_base_sha256,
     )
 

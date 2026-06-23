@@ -12,38 +12,33 @@ from contextmatch.prompts import scoring_messages
 
 
 def knowledge_base():
-    source = {
-        "url": "https://example.com/official",
-        "title": "Official history",
-        "publisher": "Example",
-        "source_type": "official_company_page",
-        "retrieved_on": "2026-06-22",
-    }
     return {
-        "metadata": {"schema_version": 1},
+        "schema_version": 2,
+        "as_of": "2026-06-23",
+        "reference_date": "2026-06-20",
         "companies": {
             "ProductCo": {
-                "status": "verified",
-                "date": "2020",
-                "date_precision": "year",
-                "sources": [source],
+                "founded_date": "2020-01-01",
+                "precision": "year",
+                "source": "https://example.com/official",
+                "source_type": "official_company_page",
             }
         },
         "technologies": {
             "NewFramework": {
-                "status": "verified",
-                "date": "2022-06",
-                "date_precision": "month",
-                "aliases": [],
-                "sources": [source],
+                "released_date": "2022-06-01",
+                "precision": "month",
+                "patterns": ["\\bNewFramework\\b"],
+                "source": "https://example.com/framework",
+                "source_type": "official_release",
             }
         },
         "certifications": {
             "New Certificate|Provider": {
-                "status": "verified",
-                "date": "2023",
-                "date_precision": "year",
-                "sources": [source],
+                "available_date": "2023-01-01",
+                "precision": "year",
+                "source": "https://example.com/certification",
+                "source_type": "official_provider_page",
             }
         },
     }
@@ -79,12 +74,7 @@ def test_skill_age_is_suspicious_only(candidate_factory):
 def test_unknown_or_fictional_facts_do_not_penalize(candidate_factory):
     candidate = candidate_factory()
     kb = knowledge_base()
-    kb["companies"]["ProductCo"] = {
-        "status": "fictional",
-        "date": None,
-        "date_precision": None,
-        "sources": [],
-    }
+    del kb["companies"]["ProductCo"]
     result = scan_candidate_integrity(candidate, kb, "hash")
     assert result.status == IntegrityStatus.CLEAN
 

@@ -1,28 +1,22 @@
 # Historical Knowledge Base
 
-This directory owns creation and validation of `knowledge_base.json`. The
-current 641-candidate ranking pipeline consumes this file through the
-`scan-integrity` command.
+This directory owns the compact, actionable `knowledge_base.json`. It contains
+only facts that can be used by integrity checks; it does not contain placeholder
+or null inventory records.
 
-Build from the complete 100,000-candidate dataset:
+Normalize an externally researched compact file:
 
 ```bash
-python3 knowledge_base/build_knowledge_base.py
+python3 knowledge_base/build_knowledge_base.py \
+  --input knowledge_base1.json \
+  --output knowledge_base.json
 ```
 
-Validate coverage and source requirements:
+Validate dates, sources, and technology regex patterns:
 
 ```bash
 python3 knowledge_base/validate_knowledge_base.py
 ```
 
-Status meanings:
-
-- `verified`: dated fact backed by a primary source.
-- `ambiguous`: a likely date exists but needs stronger or clearer evidence.
-- `unknown`: no approved primary-source date is currently recorded.
-- `fictional`: synthetic employer placeholder; not invalid by name.
-- `not_dateable`: broad concept without one defensible release date.
-
-Unknown and ambiguous entries are retained deliberately. They must never be
-silently upgraded to verified facts.
+Add an entity only when it has a useful date, matching information, and a
+reviewable source. Missing entities simply receive no historical check.

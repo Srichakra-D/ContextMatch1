@@ -1,56 +1,35 @@
-import importlib.util
 import json
 from pathlib import Path
+
+from knowledge_base.validate_knowledge_base import validate
 
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def load_module(name: str, path: Path):
-    spec = importlib.util.spec_from_file_location(name, path)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
-    return module
-
-
-builder = load_module(
-    "knowledge_base_builder", ROOT / "knowledge_base" / "build_knowledge_base.py"
-)
-validator = load_module(
-    "knowledge_base_validator",
-    ROOT / "knowledge_base" / "validate_knowledge_base.py",
-)
-
-
-def test_committed_knowledge_base_is_valid_and_complete():
+def test_committed_compact_knowledge_base_is_valid():
     path = ROOT / "knowledge_base.json"
-    assert validator.validate(path) == []
+    assert validate(path) == []
     data = json.loads(path.read_text(encoding="utf-8"))
-    assert len(data["companies"]) == 63
-    assert len(data["technologies"]) == 133
-    assert len(data["certifications"]) == 8
-    assert data["metadata"]["source_candidate_count"] == 100000
+    assert data["schema_version"] == 2
+    assert len(data["companies"]) == 6
+    assert len(data["technologies"]) == 4
+    assert data["certifications"] == {}
 
 
-def test_verified_facts_have_primary_source_metadata():
-    data = json.loads((ROOT / "knowledge_base.json").read_text(encoding="utf-8"))
-    for section in ("companies", "technologies", "certifications"):
-        for entry in data[section].values():
-            if entry["status"] != "verified":
-                continue
-            assert entry["date"]
-            assert entry["date_precision"]
-            assert entry["date_basis"]
-            assert entry["sources"]
-            assert all(source["url"].startswith("https://") for source in entry["sources"])
-
-
-def test_fictional_and_not_dateable_entries_are_never_dated():
-    data = json.loads((ROOT / "knowledge_base.json").read_text(encoding="utf-8"))
-    for section in ("companies", "technologies"):
-        for entry in data[section].values():
-            if entry["status"] in {"fictional", "not_dateable"}:
-                assert entry["date"] is None
-                assert entry["date_precision"] is None
-                assert entry["date_basis"] is None
+def test_every_compact_fact_is_actionable():
+    data = json.loads(
+        (ROOT / "knowledge_base.json").read_text(encoding="utf-8")
+    )
+    for entry in data["companies"].values():
+        assert entry["founded_date"]
+        assert entry["precision"]
+        assert entry["source"].startswith("https://")
+        assert entry["source_type"]
+        assert None not in entry.values()
+    for entry in data["technologies"].values():
+        assert entry["released_date"]
+        assert entry["patterns"]
+        assert entry["source"].startswith("https://")
+        assert entry["source_type"]
+        assert None not in entry.values()

@@ -76,9 +76,9 @@ runs/integrity/summary.json
 ```
 
 Only `verified_failure` receives score zero. Suspicious findings are retained
-for audit but are hidden from Qwen and cause no penalty. The current scan
-reports 60 verified failures, 207 suspicious candidates, and 374 clean
-candidates.
+for audit but are hidden from Qwen and cause no penalty. With the compact
+actionable knowledge base, the current scan reports 104 verified failures, 66
+suspicious candidates, and 471 clean candidates.
 
 ## 3. Create a fresh calibration set
 

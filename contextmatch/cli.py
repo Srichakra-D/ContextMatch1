@@ -115,7 +115,7 @@ def _load_integrity_context(
             )
         if (
             record.knowledge_base_schema_version
-            != knowledge_base["metadata"]["schema_version"]
+            != knowledge_base["schema_version"]
         ):
             raise ValueError("integrity report knowledge-base version mismatch")
     return {candidate_id: report[candidate_id] for candidate_id in candidate_ids}

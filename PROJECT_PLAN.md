@@ -169,8 +169,8 @@ Scanning or ranking the original 100,000-candidate file is out of scope.
   Qwen.
 - `clean`: continue normally.
 
-The current integrity scan identifies 60 verified failures, 207 suspicious
-candidates, and 374 clean candidates. Generate a new 40-candidate calibration
+The current compact-knowledge-base scan identifies 104 verified failures, 66
+suspicious candidates, and 471 clean candidates. Generate a new 40-candidate calibration
 set after this scan; do not reuse calibration created before integrity
 integration.
 
