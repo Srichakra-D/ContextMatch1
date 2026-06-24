@@ -1,0 +1,213 @@
+{
+  "passed": false,
+  "mean_absolute_error": 7.125,
+  "fraction_within_10_points": 0.719,
+  "disqualifier_misses": [
+    "CAND_0033817",
+    "CAND_0042245",
+    "CAND_0048740"
+  ],
+  "rows": [
+    {
+      "candidate_id": "CAND_0089546",
+      "expected_total": 29,
+      "predicted_total": 52,
+      "absolute_error": 23
+    },
+    {
+      "candidate_id": "CAND_0016000",
+      "expected_total": 9,
+      "predicted_total": 14,
+      "absolute_error": 5
+    },
+    {
+      "candidate_id": "CAND_0041669",
+      "expected_total": 96,
+      "predicted_total": 89,
+      "absolute_error": 7
+    },
+    {
+      "candidate_id": "CAND_0067866",
+      "expected_total": 46,
+      "predicted_total": 42,
+      "absolute_error": 4
+    },
+    {
+      "candidate_id": "CAND_0001819",
+      "expected_total": 21,
+      "predicted_total": 34,
+      "absolute_error": 13
+    },
+    {
+      "candidate_id": "CAND_0033817",
+      "expected_total": 4,
+      "predicted_total": 2,
+      "absolute_error": 2
+    },
+    {
+      "candidate_id": "CAND_0046525",
+      "expected_total": 98,
+      "predicted_total": 90,
+      "absolute_error": 8
+    },
+    {
+      "candidate_id": "CAND_0092255",
+      "expected_total": 58,
+      "predicted_total": 43,
+      "absolute_error": 15
+    },
+    {
+      "candidate_id": "CAND_0003506",
+      "expected_total": 38,
+      "predicted_total": 38,
+      "absolute_error": 0
+    },
+    {
+      "candidate_id": "CAND_0033972",
+      "expected_total": 16,
+      "predicted_total": 14,
+      "absolute_error": 2
+    },
+    {
+      "candidate_id": "CAND_0050454",
+      "expected_total": 90,
+      "predicted_total": 88,
+      "absolute_error": 2
+    },
+    {
+      "candidate_id": "CAND_0040178",
+      "expected_total": 56,
+      "predicted_total": 42,
+      "absolute_error": 14
+    },
+    {
+      "candidate_id": "CAND_0003599",
+      "expected_total": 33,
+      "predicted_total": 36,
+      "absolute_error": 3
+    },
+    {
+      "candidate_id": "CAND_0036839",
+      "expected_total": 8,
+      "predicted_total": 2,
+      "absolute_error": 6
+    },
+    {
+      "candidate_id": "CAND_0061257",
+      "expected_total": 83,
+      "predicted_total": 94,
+      "absolute_error": 11
+    },
+    {
+      "candidate_id": "CAND_0040310",
+      "expected_total": 27,
+      "predicted_total": 46,
+      "absolute_error": 19
+    },
+    {
+      "candidate_id": "CAND_0007874",
+      "expected_total": 37,
+      "predicted_total": 27,
+      "absolute_error": 10
+    },
+    {
+      "candidate_id": "CAND_0042245",
+      "expected_total": 5,
+      "predicted_total": 2,
+      "absolute_error": 3
+    },
+    {
+      "candidate_id": "CAND_0062247",
+      "expected_total": 100,
+      "predicted_total": 89,
+      "absolute_error": 11
+    },
+    {
+      "candidate_id": "CAND_0063585",
+      "expected_total": 29,
+      "predicted_total": 33,
+      "absolute_error": 4
+    },
+    {
+      "candidate_id": "CAND_0010149",
+      "expected_total": 43,
+      "predicted_total": 45,
+      "absolute_error": 2
+    },
+    {
+      "candidate_id": "CAND_0046649",
+      "expected_total": 9,
+      "predicted_total": 2,
+      "absolute_error": 7
+    },
+    {
+      "candidate_id": "CAND_0066999",
+      "expected_total": 82,
+      "predicted_total": 78,
+      "absolute_error": 4
+    },
+    {
+      "candidate_id": "CAND_0005269",
+      "expected_total": 34,
+      "predicted_total": 39,
+      "absolute_error": 5
+    },
+    {
+      "candidate_id": "CAND_0013613",
+      "expected_total": 86,
+      "predicted_total": 75,
+      "absolute_error": 11
+    },
+    {
+      "candidate_id": "CAND_0046689",
+      "expected_total": 8,
+      "predicted_total": 3,
+      "absolute_error": 5
+    },
+    {
+      "candidate_id": "CAND_0068811",
+      "expected_total": 100,
+      "predicted_total": 98,
+      "absolute_error": 2
+    },
+    {
+      "candidate_id": "CAND_0059795",
+      "expected_total": 42,
+      "predicted_total": 40,
+      "absolute_error": 2
+    },
+    {
+      "candidate_id": "CAND_0014234",
+      "expected_total": 46,
+      "predicted_total": 33,
+      "absolute_error": 13
+    },
+    {
+      "candidate_id": "CAND_0048740",
+      "expected_total": 8,
+      "predicted_total": 2,
+      "absolute_error": 6
+    },
+    {
+      "candidate_id": "CAND_0069905",
+      "expected_total": 91,
+      "predicted_total": 88,
+      "absolute_error": 3
+    },
+    {
+      "candidate_id": "CAND_0072688",
+      "expected_total": 38,
+      "predicted_total": 32,
+      "absolute_error": 6
+    }
+  ],
+  "timing": {
+    "candidate_count": 32,
+    "elapsed_seconds": 76.526,
+    "seconds_per_candidate": 2.3914
+  },
+  "stage_outputs": {
+    "predictions": "calibration/stage_1_calibration_predictions.jsonl",
+    "comparison": "calibration/stage_1_calibration_comparison.csv"
+  }
+}
