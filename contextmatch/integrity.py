@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import re
 from datetime import date
 from pathlib import Path
 from typing import Any
@@ -16,15 +15,11 @@ from .models import (
     IntegrityStatus,
 )
 
-SKILL_DURATION_TOLERANCE_MONTHS = 2
-AMBIGUOUS_ROLE_TEXT_TECHNOLOGIES = {
-    "Go",
-    "React",
-    "Rust",
-    "Spark",
-    "Flask",
+IGNORED_FINDING_RULES = {
+    "skill_duration_exceeds_technology_age",
+    "technology_claim_before_release",
 }
-
+PENALTY_ONLY_RULES = {"expert_skill_zero_usage"}
 
 def _months_between(start: date, end: date) -> int:
     return (end.year - start.year) * 12 + end.month - start.month
@@ -62,11 +57,34 @@ def load_integrity_report(
     path: str | Path,
 ) -> dict[str, CandidateIntegrity]:
     adapter = TypeAdapter(list[CandidateIntegrity])
-    records = adapter.validate_python(read_jsonl(path))
+    records = [
+        _apply_current_policy(record)
+        for record in adapter.validate_python(read_jsonl(path))
+    ]
     result = {record.candidate_id: record for record in records}
     if len(result) != len(records):
         raise ValueError("integrity report contains duplicate candidate IDs")
     return result
+
+
+def _apply_current_policy(record: CandidateIntegrity) -> CandidateIntegrity:
+    findings: list[IntegrityFinding] = []
+    for finding in record.findings:
+        if finding.rule in IGNORED_FINDING_RULES:
+            continue
+        if (
+            finding.rule in PENALTY_ONLY_RULES
+            and finding.severity == "verified_failure"
+        ):
+            finding = finding.model_copy(update={"severity": "suspicious"})
+        findings.append(finding)
+    if any(item.severity == "verified_failure" for item in findings):
+        status = IntegrityStatus.VERIFIED_FAILURE
+    elif findings:
+        status = IntegrityStatus.SUSPICIOUS
+    else:
+        status = IntegrityStatus.CLEAN
+    return record.model_copy(update={"findings": findings, "status": status})
 
 
 def _fact_date(entry: dict[str, Any], field: str) -> date:
@@ -122,14 +140,6 @@ def _finding(
     )
 
 
-def _matches_entity(text: str, names: list[str]) -> bool:
-    return any(
-        re.search(r"(?<!\w)" + re.escape(name.casefold()) + r"(?!\w)", text)
-        for name in names
-        if len(name) >= 2
-    )
-
-
 def scan_candidate_integrity(
     candidate: dict[str, Any],
     knowledge_base: dict[str, Any],
@@ -161,7 +171,6 @@ def scan_candidate_integrity(
             )
         )
 
-    technology_entries = knowledge_base["technologies"]
     for role in careers:
         try:
             start = date.fromisoformat(role["start_date"])
@@ -227,32 +236,6 @@ def scan_candidate_integrity(
                 )
             )
 
-        description = role.get("description") or ""
-        for technology_name, technology_fact in technology_entries.items():
-            if technology_name in AMBIGUOUS_ROLE_TEXT_TECHNOLOGIES:
-                continue
-            patterns = technology_fact["patterns"]
-            if any(
-                re.search(pattern, description, re.IGNORECASE)
-                for pattern in patterns
-            ) and _strictly_before(
-                end, technology_fact, "released_date"
-            ):
-                findings.append(
-                    _finding(
-                        rule="technology_claim_before_release",
-                        severity="verified_failure",
-                        message=(
-                            f"Role ending {end} explicitly claims {technology_name}, "
-                            f"released {technology_fact['released_date']}."
-                        ),
-                        entity_type="technology",
-                        entity_name=technology_name,
-                        fact=technology_fact,
-                        date_field="released_date",
-                    )
-                )
-
     zero_usage_expert = [
         skill.get("name", "unknown")
         for skill in candidate.get("skills", [])
@@ -263,7 +246,7 @@ def scan_candidate_integrity(
         findings.append(
             _finding(
                 rule="expert_skill_zero_usage",
-                severity="verified_failure",
+                severity="suspicious",
                 message=(
                     "Expert proficiency with zero usage duration: "
                     + ", ".join(zero_usage_expert)
@@ -272,36 +255,9 @@ def scan_candidate_integrity(
             )
         )
 
-    for skill in candidate.get("skills", []):
-        technology_fact = technology_entries.get(skill.get("name"))
-        duration = skill.get("duration_months")
-        if (
-            not technology_fact
-            or not isinstance(duration, int)
-        ):
-            continue
-        release = _fact_date(technology_fact, "released_date")
-        possible = (
-            _months_between(release, REFERENCE_DATE)
-            + SKILL_DURATION_TOLERANCE_MONTHS
-        )
-        if duration > possible:
-            findings.append(
-                _finding(
-                    rule="skill_duration_exceeds_technology_age",
-                    severity="suspicious",
-                    message=(
-                        f"{skill['name']} claims {duration} months of use, while "
-                        f"approximately {possible} months are possible since "
-                        f"{technology_fact['released_date']}."
-                    ),
-                    entity_type="technology",
-                    entity_name=skill["name"],
-                    fact=technology_fact,
-                    date_field="released_date",
-                )
-            )
-
+    # Technology release-date chronology is intentionally ignored. In this
+    # dataset, skill durations and modern framework labels are generated
+    # metadata and are too noisy to use as honeypot or ranking signals.
     for certification in candidate.get("certifications", []):
         key = f"{certification['name']}|{certification['issuer']}"
         certification_fact = knowledge_base["certifications"].get(key)
@@ -386,16 +342,6 @@ def verified_integrity_issues(candidate: dict[str, Any]) -> list[str]:
                 f"role duration contradiction at {role.get('company', 'unknown')}: "
                 f"stated {stated}, calculated approximately {calculated} months"
             )
-    zero_usage = [
-        skill.get("name", "unknown")
-        for skill in candidate.get("skills", [])
-        if skill.get("proficiency") == "expert"
-        and skill.get("duration_months") == 0
-    ]
-    if zero_usage:
-        issues.append(
-            "expert proficiency with zero usage duration: " + ", ".join(zero_usage)
-        )
     return issues
 
 

@@ -165,14 +165,21 @@ This implementation phase is intentionally limited to `top_700.jsonl`.
 Scanning or ranking the original 100,000-candidate file is out of scope.
 
 - `verified_failure`: assign score zero and skip Qwen.
-- `suspicious`: retain for audit, apply no penalty, and hide the warning from
-  Qwen.
+- `suspicious`: retain for audit and hide the warning from Qwen.
 - `clean`: continue normally.
 
-The current compact-knowledge-base scan identifies 104 verified failures, 66
-suspicious candidates, and 471 clean candidates. Generate a new 40-candidate calibration
-set after this scan; do not reuse calibration created before integrity
-integration.
+`expert_skill_zero_usage` is suspicious metadata, not a honeypot. It receives a
+5-point deterministic score penalty, capped at 10 points, after Qwen scoring.
+
+Technology release-date mismatches are not used for integrity or honeypot
+detection. This includes both skill-duration metadata and dated career-history
+mentions, because the generated data uses modern technology labels too noisily
+for reliable exclusion.
+
+The current compact-knowledge-base scan identifies 83 verified failures, 21
+suspicious candidates, and 537 clean candidates. Generate a new 40-candidate
+calibration set after this scan; do not reuse calibration created before
+integrity integration.
 
 ### Stage 1: calibration evaluation
 

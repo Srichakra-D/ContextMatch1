@@ -19,7 +19,12 @@ from .models import (
 from .output import fallback_reasoning, reasoning_is_valid, write_submission
 from .prompts import comparison_messages, reasoning_messages, scoring_messages
 from .rerank import aggregate_comparisons, make_comparison_groups
-from .rubric import RUBRIC_VERSION, calculate_score, merge_assessments
+from .rubric import (
+    RUBRIC_VERSION,
+    calculate_score,
+    expert_zero_usage_penalty,
+    merge_assessments,
+)
 from .stage_outputs import write_comparative_ranking, write_individual_ranking
 
 
@@ -30,6 +35,20 @@ def load_anchors(path: str | Path | None) -> list[dict[str, Any]]:
     if not isinstance(value, list):
         raise ValueError("anchors file must contain a JSON array")
     return value
+
+
+def _calculate_score_with_integrity(
+    assessment: CandidateAssessment,
+    integrity: CandidateIntegrity | None,
+    integrity_issues: list[str] | None = None,
+) -> tuple[float, int | None]:
+    score, cap = calculate_score(assessment, integrity_issues)
+    if integrity_issues:
+        return score, cap
+    penalty = expert_zero_usage_penalty(
+        [finding.rule for finding in (integrity.findings if integrity else [])]
+    )
+    return max(score - penalty, 0.0), cap
 
 
 async def score_candidates(
@@ -98,7 +117,7 @@ async def score_candidates(
             raise ValueError(
                 f"model returned {assessment.candidate_id} while scoring {cid}"
             )
-        score, cap = calculate_score(assessment)
+        score, cap = _calculate_score_with_integrity(assessment, integrity)
         return ScoredCandidate(
             candidate_id=cid,
             assessment=assessment,
@@ -172,8 +191,10 @@ async def repeat_uncertain_scores(
         item.repeated_assessment = merge_assessments(item.assessment, second)
         if first_flags != second_flags:
             disagreements.append(item)
-        item.rubric_score, item.applied_cap = calculate_score(
-            item.repeated_assessment, item.integrity_issues
+        item.rubric_score, item.applied_cap = _calculate_score_with_integrity(
+            item.repeated_assessment,
+            (integrity_by_id or {}).get(item.candidate_id),
+            item.integrity_issues,
         )
         item.final_score = item.rubric_score
 
@@ -198,8 +219,10 @@ async def repeat_uncertain_scores(
         for item in disagreements:
             final = adjudicated_by_id[item.candidate_id].assessment
             item.adjudicated_assessment = final
-            item.rubric_score, item.applied_cap = calculate_score(
-                final, item.integrity_issues
+            item.rubric_score, item.applied_cap = _calculate_score_with_integrity(
+                final,
+                (integrity_by_id or {}).get(item.candidate_id),
+                item.integrity_issues,
             )
             item.final_score = item.rubric_score
     else:

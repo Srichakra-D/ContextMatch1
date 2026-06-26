@@ -75,10 +75,14 @@ runs/integrity/suspicious_candidates.jsonl
 runs/integrity/summary.json
 ```
 
-Only `verified_failure` receives score zero. Suspicious findings are retained
-for audit but are hidden from Qwen and cause no penalty. With the compact
-actionable knowledge base, the current scan reports 104 verified failures, 66
-suspicious candidates, and 471 clean candidates.
+Only `verified_failure` receives score zero. Expert skills with zero usage are
+treated as suspicious metadata and receive a small score penalty instead of
+hard exclusion. Other suspicious findings, if any, are retained for audit but
+hidden from Qwen. Technology release-date mismatches are ignored entirely,
+including both skill-duration metadata and dated career-text mentions, because
+those fields are too noisy for honeypot detection in this dataset. With the
+compact actionable knowledge base, the current scan reports 83 verified
+failures, 21 suspicious candidates, and 537 clean candidates.
 
 ## 3. Create a fresh calibration set
 
@@ -103,8 +107,7 @@ contextmatch select-calibration \
 ```
 
 Verified failures skip Qwen and receive deterministic score zero.
-`select-calibration` excludes them while keeping suspicious candidates fully
-eligible.
+`select-calibration` excludes them while keeping suspicious candidates eligible.
 
 Open `calibration/reviews.json`. For every record:
 
@@ -163,8 +166,9 @@ contextmatch run \
 The run:
 
 1. Assigns verified failures score zero without calling Qwen.
-2. Scores clean and suspicious candidates normally; suspicious warnings are
-   not shown to Qwen.
+2. Scores clean and suspicious candidates with Qwen; suspicious warnings are
+   not shown to Qwen. `expert_skill_zero_usage` receives a 5-point deterministic
+   penalty, capped at 10 points.
 3. Repeats ranks 70–180, confidence below 0.75, and conflicting cases.
 4. Uses thinking-mode adjudication when disqualifier flags disagree.
 5. Comparatively reranks the leading 150 eligible candidates in three

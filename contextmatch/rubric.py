@@ -3,6 +3,8 @@ from __future__ import annotations
 from .models import CandidateAssessment, Disqualifier, DimensionScores
 
 RUBRIC_VERSION = "redrob-v1"
+EXPERT_ZERO_USAGE_PENALTY = 5.0
+MAX_EXPERT_ZERO_USAGE_PENALTY = 10.0
 
 CAPS: dict[Disqualifier, int] = {
     Disqualifier.PURE_RESEARCH: 30,
@@ -52,3 +54,8 @@ def calculate_score(
     caps = [CAPS[flag] for flag in assessment.disqualifiers if flag in CAPS]
     cap = min(caps) if caps else None
     return (min(raw, cap) if cap is not None else raw), cap
+
+
+def expert_zero_usage_penalty(finding_rules: list[str]) -> float:
+    count = sum(rule == "expert_skill_zero_usage" for rule in finding_rules)
+    return min(count * EXPERT_ZERO_USAGE_PENALTY, MAX_EXPERT_ZERO_USAGE_PENALTY)

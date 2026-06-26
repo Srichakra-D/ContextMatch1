@@ -1,10 +1,12 @@
 import asyncio
-from copy import deepcopy
+import json
 
-from contextmatch.integrity import scan_candidate_integrity
+from contextmatch.integrity import load_integrity_report, scan_candidate_integrity
 from contextmatch.models import (
     CandidateAssessment,
+    CandidateIntegrity,
     DimensionScores,
+    IntegrityFinding,
     IntegrityStatus,
 )
 from contextmatch.pipeline import score_candidates
@@ -56,7 +58,7 @@ def test_employment_before_verified_company_is_failure(candidate_factory):
     )
 
 
-def test_skill_age_is_suspicious_only(candidate_factory):
+def test_technology_chronology_is_ignored(candidate_factory):
     candidate = candidate_factory()
     candidate["skills"] = [
         {
@@ -66,9 +68,22 @@ def test_skill_age_is_suspicious_only(candidate_factory):
             "duration_months": 60,
         }
     ]
+    candidate["career_history"].append(
+        {
+            "company": "ProductCo",
+            "title": "Search Engineer",
+            "start_date": "2021-01-01",
+            "end_date": "2021-12-01",
+            "duration_months": 11,
+            "is_current": False,
+            "industry": "Software",
+            "company_size": "201-500",
+            "description": "Built production systems using NewFramework.",
+        }
+    )
     result = scan_candidate_integrity(candidate, knowledge_base(), "hash")
-    assert result.status == IntegrityStatus.SUSPICIOUS
-    assert result.findings[0].rule == "skill_duration_exceeds_technology_age"
+    assert result.status == IntegrityStatus.CLEAN
+    assert result.findings == []
 
 
 def test_unknown_or_fictional_facts_do_not_penalize(candidate_factory):
@@ -87,6 +102,35 @@ def test_certification_year_mismatch_is_suspicious(candidate_factory):
     result = scan_candidate_integrity(candidate, knowledge_base(), "hash")
     assert result.status == IntegrityStatus.SUSPICIOUS
     assert result.findings[0].rule == "certification_before_launch"
+
+
+def test_loaded_integrity_report_uses_current_policy(tmp_path):
+    path = tmp_path / "integrity_report.jsonl"
+    stale = CandidateIntegrity(
+        candidate_id="CAND_0000001",
+        status=IntegrityStatus.VERIFIED_FAILURE,
+        findings=[
+            IntegrityFinding(
+                rule="expert_skill_zero_usage",
+                severity="verified_failure",
+                message="Expert proficiency with zero usage duration: Python.",
+            ),
+            IntegrityFinding(
+                rule="skill_duration_exceeds_technology_age",
+                severity="suspicious",
+                message="Ignored stale technology chronology finding.",
+            ),
+        ],
+        knowledge_base_schema_version=2,
+        knowledge_base_sha256="hash",
+    )
+    path.write_text(json.dumps(stale.model_dump(mode="json")) + "\n")
+    loaded = load_integrity_report(path)["CAND_0000001"]
+    assert loaded.status == IntegrityStatus.SUSPICIOUS
+    assert [finding.rule for finding in loaded.findings] == [
+        "expert_skill_zero_usage"
+    ]
+    assert loaded.findings[0].severity == "suspicious"
 
 
 class CountingClient:
@@ -118,6 +162,26 @@ class CountingClient:
 
 def test_verified_failure_skips_qwen(candidate_factory):
     candidate = candidate_factory()
+    failed = candidate.copy()
+    failed["career_history"] = [role.copy() for role in candidate["career_history"]]
+    failed["career_history"][0]["start_date"] = "2019-01-01"
+    failed["career_history"][0]["duration_months"] = 89
+    integrity = scan_candidate_integrity(failed, knowledge_base(), "hash")
+    client = CountingClient()
+    scores, _ = asyncio.run(
+        score_candidates(
+            client,
+            [candidate],
+            integrity_by_id={candidate["candidate_id"]: integrity},
+        )
+    )
+    assert client.calls == 0
+    assert scores[0].rubric_score == 0
+    assert scores[0].integrity_status == IntegrityStatus.VERIFIED_FAILURE
+
+
+def test_expert_zero_usage_scores_with_penalty(candidate_factory):
+    candidate = candidate_factory()
     integrity = scan_candidate_integrity(
         {
             **candidate,
@@ -141,14 +205,14 @@ def test_verified_failure_skips_qwen(candidate_factory):
             integrity_by_id={candidate["candidate_id"]: integrity},
         )
     )
-    assert client.calls == 0
-    assert scores[0].rubric_score == 0
-    assert scores[0].integrity_status == IntegrityStatus.VERIFIED_FAILURE
+    assert client.calls == 1
+    assert scores[0].rubric_score == 2
+    assert scores[0].integrity_status == IntegrityStatus.SUSPICIOUS
+    assert scores[0].integrity_findings[0].rule == "expert_skill_zero_usage"
 
 
 def test_suspicious_findings_are_hidden_from_qwen(candidate_factory):
     candidate = candidate_factory()
     messages = scoring_messages(candidate)
     rendered = "\n".join(message["content"] for message in messages)
-    assert "skill_duration_exceeds_technology_age" not in rendered
     assert "integrity_status" not in rendered

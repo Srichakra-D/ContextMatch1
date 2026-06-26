@@ -1,5 +1,9 @@
 from contextmatch.models import CandidateAssessment, DimensionScores, Disqualifier
-from contextmatch.rubric import calculate_score, merge_assessments
+from contextmatch.rubric import (
+    calculate_score,
+    expert_zero_usage_penalty,
+    merge_assessments,
+)
 
 
 def assessment(score_offset=0, flags=None):
@@ -37,6 +41,16 @@ def test_disqualifier_applies_lowest_cap():
 
 def test_integrity_always_caps_at_zero():
     assert calculate_score(assessment(), ["impossible"])[0] == 0
+
+
+def test_expert_zero_usage_penalty_is_limited():
+    assert expert_zero_usage_penalty(["expert_skill_zero_usage"]) == 5
+    assert (
+        expert_zero_usage_penalty(
+            ["expert_skill_zero_usage", "expert_skill_zero_usage", "other"]
+        )
+        == 10
+    )
 
 
 def test_repeat_merge_averages_dimensions_and_unions_flags():

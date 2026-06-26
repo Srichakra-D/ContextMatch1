@@ -1,8 +1,9 @@
 # Historical Knowledge Base
 
-This directory owns the compact, actionable `knowledge_base.json`. It contains
-only facts that can be used by integrity checks; it does not contain placeholder
-or null inventory records.
+This directory owns the compact `knowledge_base.json`. It contains sourced
+facts for auditability, without placeholder or null inventory records.
+Company facts are used by integrity checks. Technology release dates are kept
+as reference data only and are not used for honeypot detection or ranking.
 
 Normalize an externally researched compact file:
 
