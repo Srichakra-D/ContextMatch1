@@ -1,642 +1,642 @@
 stage_3_final_rank,candidate_id,stage_2_individual_rank,stage_2_individual_score,comparative_percentile,stage_3_final_score,rank_change,compared_in_top_group,selected_top_100,integrity_status,integrity_reasons
 1,CAND_0006567,1,100.0,100.0,100.0,0,True,True,clean,
-2,CAND_0041669,4,100.0,98.657718,99.731544,2,True,True,clean,
-3,CAND_0039754,3,100.0,97.315436,99.463087,0,True,True,clean,
-4,CAND_0068811,6,100.0,91.946309,98.389262,2,True,True,clean,
-5,CAND_0037980,15,98.0,99.328859,98.265772,10,True,True,clean,
-6,CAND_0028793,14,98.0,97.986577,97.997315,8,True,True,suspicious,"QLoRA claims 43 months of use, while approximately 39 months are possible since 2023-05-23."
-7,CAND_0057563,18,98.0,96.644295,97.728859,11,True,True,suspicious,"QLoRA claims 48 months of use, while approximately 39 months are possible since 2023-05-23."
-8,CAND_0061257,19,98.0,95.973154,97.594631,11,True,True,clean,
-9,CAND_0070398,23,98.0,95.302013,97.460403,14,True,True,clean,
-10,CAND_0005649,8,98.0,94.630872,97.326174,-2,True,True,clean,
-11,CAND_0007009,10,98.0,93.959732,97.191946,-1,True,True,suspicious,"QLoRA claims 58 months of use, while approximately 39 months are possible since 2023-05-23."
-12,CAND_0039383,16,98.0,93.288591,97.057718,4,True,True,suspicious,"QLoRA claims 71 months of use, while approximately 39 months are possible since 2023-05-23."
-13,CAND_0061265,20,98.0,92.61745,96.92349,7,True,True,suspicious,"QLoRA claims 56 months of use, while approximately 39 months are possible since 2023-05-23."
-14,CAND_0086022,27,98.0,91.275168,96.655034,13,True,True,suspicious,"QLoRA claims 54 months of use, while approximately 39 months are possible since 2023-05-23."
-15,CAND_0010257,2,100.0,81.879195,96.375839,-13,True,True,clean,
-16,CAND_0046064,17,98.0,89.261745,96.252349,1,True,True,suspicious,"QLoRA claims 45 months of use, while approximately 39 months are possible since 2023-05-23."
-17,CAND_0046525,5,100.0,81.208054,96.241611,-12,True,True,clean,
-18,CAND_0077337,24,98.0,87.919463,95.983893,6,True,True,suspicious,"QLoRA claims 47 months of use, while approximately 39 months are possible since 2023-05-23."
-19,CAND_0081846,26,98.0,87.248322,95.849664,7,True,True,clean,
-20,CAND_0093193,29,98.0,86.577181,95.715436,9,True,True,clean,
-21,CAND_0018549,13,98.0,85.90604,95.581208,-8,True,True,clean,
-22,CAND_0062247,21,98.0,85.234899,95.44698,-1,True,True,clean,
-23,CAND_0080766,25,98.0,83.892617,95.178523,2,True,True,suspicious,"QLoRA claims 55 months of use, while approximately 39 months are possible since 2023-05-23."
-24,CAND_0088025,28,98.0,83.221477,95.044295,4,True,True,suspicious,"QLoRA claims 83 months of use, while approximately 39 months are possible since 2023-05-23."
-25,CAND_0008425,31,96.0,90.604027,94.920805,6,True,True,clean,
-26,CAND_0005260,7,98.0,82.550336,94.910067,-19,True,True,clean,
-27,CAND_0043228,33,96.0,89.932886,94.786577,6,True,True,clean,
-28,CAND_0060072,35,96.0,88.590604,94.518121,7,True,True,clean,
-29,CAND_0069905,22,98.0,80.536913,94.507383,-7,True,True,clean,
-30,CAND_0006557,9,98.0,79.194631,94.238926,-21,True,True,clean,
-31,CAND_0068351,36,96.0,84.563758,93.712752,5,True,True,clean,
-32,CAND_0010770,11,98.0,75.167785,93.433557,-21,True,True,clean,
-33,CAND_0011162,12,98.0,73.154362,93.030872,-21,True,True,clean,
-34,CAND_0005538,30,96.0,77.852349,92.37047,-4,True,True,suspicious,"QLoRA claims 58 months of use, while approximately 39 months are possible since 2023-05-23."
-35,CAND_0094759,38,96.0,66.442953,90.088591,3,True,True,clean,
-36,CAND_0047721,34,96.0,64.42953,89.685906,-2,True,True,clean,
-37,CAND_0083307,37,96.0,52.348993,87.269799,0,True,True,clean,
-38,CAND_0010685,32,96.0,51.006711,87.001342,-6,True,True,clean,
-39,CAND_0083879,41,84.0,79.865772,83.173154,2,True,True,clean,
-40,CAND_0044855,53,82.0,78.52349,81.304698,13,True,True,suspicious,"QLoRA claims 71 months of use, while approximately 39 months are possible since 2023-05-23."
-41,CAND_0093912,60,82.0,75.838926,80.767785,19,True,True,clean,
-42,CAND_0078492,45,83.0,71.812081,80.762416,3,True,True,clean,
-43,CAND_0081852,47,83.0,71.14094,80.628188,4,True,True,clean,
-44,CAND_0006418,49,82.0,74.496644,80.499329,5,True,True,clean,
-45,CAND_0076163,58,82.0,73.825503,80.365101,13,True,True,clean,
-46,CAND_0009691,43,83.0,69.798658,80.359732,-3,True,True,suspicious,"QLoRA claims 44 months of use, while approximately 39 months are possible since 2023-05-23."
-47,CAND_0027691,64,81.0,77.181208,80.236242,17,True,True,suspicious,"QLoRA claims 46 months of use, while approximately 39 months are possible since 2023-05-23."
-48,CAND_0053695,66,81.0,76.510067,80.102013,18,True,True,clean,
-49,CAND_0020877,50,82.0,72.483221,80.096644,1,True,True,suspicious,"QLoRA claims 83 months of use, while approximately 39 months are possible since 2023-05-23."
-50,CAND_0089552,59,82.0,70.469799,79.69396,9,True,True,clean,
-51,CAND_0091909,42,84.0,61.744966,79.548993,-9,True,True,suspicious,"QLoRA claims 89 months of use, while approximately 39 months are possible since 2023-05-23."
-52,CAND_0044883,54,82.0,68.456376,79.291275,2,True,True,suspicious,"QLoRA claims 80 months of use, while approximately 39 months are possible since 2023-05-23."
-53,CAND_0065195,56,82.0,67.114094,79.022819,3,True,True,suspicious,"QLoRA claims 93 months of use, while approximately 39 months are possible since 2023-05-23."
-54,CAND_0058575,39,84.0,58.389262,78.877852,-15,True,True,clean,
-55,CAND_0078002,44,83.0,59.731544,78.346309,-11,True,True,suspicious,"QLoRA claims 90 months of use, while approximately 39 months are possible since 2023-05-23."
-56,CAND_0096172,73,81.0,65.771812,77.954362,17,True,True,clean,
-57,CAND_0099401,74,81.0,65.100671,77.820134,17,True,True,clean,
-58,CAND_0050876,65,81.0,63.758389,77.551678,7,True,True,suspicious,"QLoRA claims 58 months of use, while approximately 39 months are possible since 2023-05-23."
-59,CAND_0075249,69,81.0,63.087248,77.41745,10,True,True,clean,
-60,CAND_0076831,70,81.0,62.416107,77.283221,10,True,True,clean,
-61,CAND_0095528,61,82.0,56.375839,76.875168,0,True,True,clean,
-62,CAND_0052328,80,79.0,67.785235,76.757047,18,True,True,suspicious,"QLoRA claims 54 months of use, while approximately 39 months are possible since 2023-05-23."
-63,CAND_0042029,52,82.0,53.691275,76.338255,-11,True,True,clean,
-64,CAND_0066376,57,82.0,53.020134,76.204027,-7,True,True,clean,
-65,CAND_0039838,77,80.0,60.402685,76.080537,12,True,True,suspicious,"QLoRA claims 40 months of use, while approximately 39 months are possible since 2023-05-23."
-66,CAND_0030348,51,82.0,50.33557,75.667114,-15,True,True,clean,
-67,CAND_0066999,40,84.0,41.610738,75.522148,-27,True,True,clean,
-68,CAND_0042100,90,77.0,69.127517,75.425503,22,True,True,suspicious,"QLoRA claims 84 months of use, while approximately 39 months are possible since 2023-05-23."
-69,CAND_0096142,72,81.0,51.677852,75.13557,3,True,True,clean,
-70,CAND_0058688,67,81.0,49.66443,74.732886,-3,True,True,clean,
-71,CAND_0095619,88,78.0,61.073826,74.614765,17,True,True,clean,
-72,CAND_0093331,71,81.0,47.651007,74.330201,-1,True,True,clean,
-73,CAND_0019480,84,78.0,59.060403,74.212081,11,True,True,clean,
-74,CAND_0009024,62,81.0,46.308725,74.061745,-12,True,True,clean,
-75,CAND_0060054,55,82.0,42.281879,74.056376,-20,True,True,clean,
-76,CAND_0014440,63,81.0,44.966443,73.793289,-13,True,True,clean,
-77,CAND_0030468,85,78.0,55.033557,73.406711,8,True,True,clean,
-78,CAND_0079387,46,83.0,34.228188,73.245638,-32,True,True,suspicious,"QLoRA claims 83 months of use, while approximately 39 months are possible since 2023-05-23."
-79,CAND_0064270,93,77.0,57.718121,73.143624,14,True,True,clean,
-80,CAND_0012957,75,80.0,45.637584,73.127517,-5,True,True,clean,
-81,CAND_0001610,48,82.0,37.583893,73.116779,-33,True,True,clean,
-82,CAND_0087630,95,77.0,57.04698,73.009396,13,True,True,suspicious,"QLoRA claims 92 months of use, while approximately 39 months are possible since 2023-05-23."
-83,CAND_0031593,76,80.0,44.295302,72.85906,-7,True,True,clean,
-84,CAND_0045250,78,80.0,43.624161,72.724832,-6,True,True,clean,
-85,CAND_0000031,83,78.0,46.979866,71.795973,-2,True,True,clean,
-86,CAND_0070202,68,81.0,34.899329,71.779866,-18,True,True,clean,
-87,CAND_0036437,98,76.0,54.362416,71.672483,11,True,True,clean,
-88,CAND_0022812,89,77.0,48.993289,71.398658,1,True,True,clean,
-89,CAND_0074735,81,79.0,40.268456,71.253691,-8,True,True,clean,
-90,CAND_0016163,102,75.0,55.704698,71.14094,12,True,True,clean,
-91,CAND_0086151,82,79.0,38.926174,70.985235,-9,True,True,clean,
-92,CAND_0009837,79,79.0,36.912752,70.58255,-13,True,True,suspicious,"QLoRA claims 76 months of use, while approximately 39 months are possible since 2023-05-23."
-93,CAND_0051004,86,78.0,39.597315,70.319463,-7,True,True,clean,
-94,CAND_0049538,92,77.0,42.95302,70.190604,-2,True,True,suspicious,"QLoRA claims 53 months of use, while approximately 39 months are possible since 2023-05-23."
-95,CAND_0044222,91,77.0,30.872483,67.774497,-4,True,True,suspicious,"QLoRA claims 60 months of use, while approximately 39 months are possible since 2023-05-23."
-96,CAND_0070485,94,77.0,29.530201,67.50604,-2,True,True,suspicious,"QLoRA claims 53 months of use, while approximately 39 months are possible since 2023-05-23."
-97,CAND_0076251,87,78.0,24.832215,67.366443,-10,True,True,clean,
-98,CAND_0042506,112,72.0,48.322148,67.26443,14,True,True,clean,
-99,CAND_0099806,96,77.0,26.845638,66.969128,-3,True,True,clean,
-100,CAND_0074225,111,73.0,40.939597,66.587919,11,True,True,suspicious,"QLoRA claims 51 months of use, while approximately 39 months are possible since 2023-05-23."
-101,CAND_0049896,108,74.0,35.57047,66.314094,7,True,False,clean,
-102,CAND_0054123,105,75.0,30.201342,66.040268,3,True,False,clean,
-103,CAND_0079284,99,76.0,24.161074,65.632215,-4,True,False,clean,
-104,CAND_0094056,107,75.0,27.516779,65.503356,3,True,False,clean,
-105,CAND_0027801,103,75.0,25.503356,65.100671,-2,True,False,suspicious,"QLoRA claims 52 months of use, while approximately 39 months are possible since 2023-05-23."
-106,CAND_0037944,109,73.0,31.543624,64.708725,3,True,False,suspicious,"QLoRA claims 58 months of use, while approximately 39 months are possible since 2023-05-23."
-107,CAND_0008239,101,75.0,23.489933,64.697987,-6,True,False,clean,
-108,CAND_0081053,100,76.0,19.463087,64.692617,-8,True,False,clean,
-109,CAND_0026532,114,71.0,38.255034,64.451007,5,True,False,clean,
-110,CAND_0003977,97,76.0,13.422819,63.484564,-13,True,False,clean,
-111,CAND_0037000,104,75.0,16.778523,63.355705,-7,True,False,clean,
-112,CAND_0064904,106,75.0,15.436242,63.087248,-6,True,False,clean,
-113,CAND_0054394,110,73.0,20.805369,62.561074,-3,True,False,clean,
-114,CAND_0084819,113,72.0,18.791946,61.358389,-1,True,False,clean,
-115,CAND_0020708,115,67.0,32.214765,60.042953,0,True,False,clean,
-116,CAND_0092245,118,65.0,28.187919,57.637584,2,True,False,clean,
-117,CAND_0032807,116,66.0,17.449664,56.289933,-1,True,False,clean,
-118,CAND_0056881,119,64.0,22.147651,55.62953,1,True,False,clean,
-119,CAND_0057701,117,65.0,16.107383,55.221477,-2,True,False,clean,
-120,CAND_0020350,122,61.0,26.174497,54.034899,2,True,False,clean,
-121,CAND_0087364,120,64.0,4.026846,52.005369,-1,True,False,clean,
-122,CAND_0032216,123,58.0,22.818792,50.963758,1,True,False,clean,
-123,CAND_0007460,121,62.0,2.013423,50.002685,-2,True,False,clean,
-124,CAND_0046132,130,52.0,36.241611,48.848322,6,True,False,clean,
-125,CAND_0033987,124,58.0,11.409396,48.681879,-1,True,False,clean,
-126,CAND_0093763,139,52.0,33.557047,48.311409,13,True,False,clean,
-127,CAND_0093799,140,52.0,32.885906,48.177181,13,True,False,suspicious,"QLoRA claims 60 months of use, while approximately 39 months are possible since 2023-05-23."
-128,CAND_0072688,128,53.0,28.85906,48.171812,0,True,False,clean,
-129,CAND_0066035,125,56.0,6.040268,46.008054,-4,True,False,clean,
-130,CAND_0092255,138,52.0,21.47651,45.895302,8,True,False,clean,
-131,CAND_0067866,133,52.0,20.134228,45.626846,2,True,False,clean,
-132,CAND_0001405,142,51.0,18.120805,44.424161,10,True,False,suspicious,"QLoRA claims 53 months of use, while approximately 39 months are possible since 2023-05-23."
-133,CAND_0008295,127,53.0,8.724832,44.144966,-6,True,False,clean,
-134,CAND_0015057,149,51.0,14.765101,43.75302,15,True,False,clean,
-135,CAND_0040178,129,52.0,10.738255,43.747651,-6,True,False,clean,
-136,CAND_0003575,143,51.0,14.09396,43.618792,7,True,False,clean,
-137,CAND_0048558,131,52.0,10.067114,43.613423,-6,True,False,clean,
-138,CAND_0090155,137,52.0,9.395973,43.479195,-1,True,False,clean,
-139,CAND_0010149,146,51.0,12.751678,43.350336,7,True,False,clean,
-140,CAND_0010603,147,51.0,12.080537,43.216107,7,True,False,clean,
-141,CAND_0053605,132,52.0,6.711409,42.942282,-9,True,False,clean,
-142,CAND_0007052,126,53.0,2.684564,42.936913,-16,True,False,clean,
-143,CAND_0073883,134,52.0,5.369128,42.673826,-9,True,False,clean,
-144,CAND_0086893,135,52.0,4.697987,42.539597,-9,True,False,suspicious,"QLoRA claims 48 months of use, while approximately 39 months are possible since 2023-05-23."
-145,CAND_0008517,145,51.0,8.053691,42.410738,0,True,False,clean,
-146,CAND_0014909,148,51.0,7.38255,42.27651,2,True,False,clean,
-147,CAND_0089546,136,52.0,0.671141,41.734228,-11,True,False,suspicious,"QLoRA claims 53 months of use, while approximately 39 months are possible since 2023-05-23."
-148,CAND_0098454,141,52.0,0.0,41.6,-7,True,False,clean,
-149,CAND_0004628,144,51.0,3.355705,41.471141,-5,True,False,clean,
-150,CAND_0015065,150,51.0,1.342282,41.068456,0,True,False,clean,
-151,CAND_0018888,151,51.0,0.0,40.8,0,False,False,clean,
-152,CAND_0030784,152,51.0,0.0,40.8,0,False,False,suspicious,"QLoRA claims 50 months of use, while approximately 39 months are possible since 2023-05-23."
-153,CAND_0035879,153,51.0,0.0,40.8,0,False,False,clean,
-154,CAND_0036121,154,51.0,0.0,40.8,0,False,False,clean,
-155,CAND_0043381,155,51.0,0.0,40.8,0,False,False,clean,
-156,CAND_0043829,156,51.0,0.0,40.8,0,False,False,clean,
-157,CAND_0046353,157,51.0,0.0,40.8,0,False,False,clean,
-158,CAND_0054318,158,51.0,0.0,40.8,0,False,False,clean,
-159,CAND_0059795,159,51.0,0.0,40.8,0,False,False,clean,
-160,CAND_0060538,160,51.0,0.0,40.8,0,False,False,clean,
-161,CAND_0061550,161,51.0,0.0,40.8,0,False,False,clean,
-162,CAND_0061819,162,51.0,0.0,40.8,0,False,False,clean,
-163,CAND_0065430,163,51.0,0.0,40.8,0,False,False,clean,
-164,CAND_0070589,164,51.0,0.0,40.8,0,False,False,clean,
-165,CAND_0071939,165,51.0,0.0,40.8,0,False,False,suspicious,"QLoRA claims 40 months of use, while approximately 39 months are possible since 2023-05-23."
-166,CAND_0072768,166,51.0,0.0,40.8,0,False,False,clean,
-167,CAND_0073007,167,51.0,0.0,40.8,0,False,False,clean,
-168,CAND_0076412,168,51.0,0.0,40.8,0,False,False,clean,
-169,CAND_0083852,169,51.0,0.0,40.8,0,False,False,clean,
-170,CAND_0090584,170,51.0,0.0,40.8,0,False,False,clean,
-171,CAND_0091890,171,51.0,0.0,40.8,0,False,False,clean,
-172,CAND_0092706,172,51.0,0.0,40.8,0,False,False,clean,
-173,CAND_0095207,173,51.0,0.0,40.8,0,False,False,clean,
-174,CAND_0097176,174,51.0,0.0,40.8,0,False,False,clean,
-175,CAND_0004402,175,50.0,0.0,40.0,0,False,False,clean,
-176,CAND_0014234,176,50.0,0.0,40.0,0,False,False,clean,
-177,CAND_0014743,177,50.0,0.0,40.0,0,False,False,clean,
-178,CAND_0015967,178,50.0,0.0,40.0,0,False,False,clean,
-179,CAND_0016659,179,50.0,0.0,40.0,0,False,False,clean,
-180,CAND_0019288,180,50.0,0.0,40.0,0,False,False,clean,
-181,CAND_0019845,181,50.0,0.0,40.0,0,False,False,clean,
-182,CAND_0020991,182,50.0,0.0,40.0,0,False,False,clean,
-183,CAND_0022023,183,50.0,0.0,40.0,0,False,False,clean,
-184,CAND_0028422,184,50.0,0.0,40.0,0,False,False,clean,
-185,CAND_0029135,185,50.0,0.0,40.0,0,False,False,clean,
-186,CAND_0037160,186,50.0,0.0,40.0,0,False,False,clean,
-187,CAND_0038949,187,50.0,0.0,40.0,0,False,False,clean,
-188,CAND_0043304,188,50.0,0.0,40.0,0,False,False,clean,
-189,CAND_0044248,189,50.0,0.0,40.0,0,False,False,clean,
-190,CAND_0044262,190,50.0,0.0,40.0,0,False,False,clean,
-191,CAND_0044890,191,50.0,0.0,40.0,0,False,False,clean,
-192,CAND_0045141,192,50.0,0.0,40.0,0,False,False,clean,
-193,CAND_0047521,193,50.0,0.0,40.0,0,False,False,clean,
-194,CAND_0051593,194,50.0,0.0,40.0,0,False,False,clean,
-195,CAND_0054829,195,50.0,0.0,40.0,0,False,False,clean,
-196,CAND_0055624,196,50.0,0.0,40.0,0,False,False,clean,
-197,CAND_0060315,197,50.0,0.0,40.0,0,False,False,suspicious,"QLoRA claims 59 months of use, while approximately 39 months are possible since 2023-05-23."
-198,CAND_0061175,198,50.0,0.0,40.0,0,False,False,clean,
-199,CAND_0064888,199,50.0,0.0,40.0,0,False,False,clean,
-200,CAND_0065514,200,50.0,0.0,40.0,0,False,False,clean,
-201,CAND_0065786,201,50.0,0.0,40.0,0,False,False,clean,
-202,CAND_0072721,202,50.0,0.0,40.0,0,False,False,clean,
-203,CAND_0073504,203,50.0,0.0,40.0,0,False,False,clean,
-204,CAND_0073620,204,50.0,0.0,40.0,0,False,False,clean,
-205,CAND_0074317,205,50.0,0.0,40.0,0,False,False,clean,
-206,CAND_0074731,206,50.0,0.0,40.0,0,False,False,clean,
-207,CAND_0078262,207,50.0,0.0,40.0,0,False,False,clean,
-208,CAND_0080344,208,50.0,0.0,40.0,0,False,False,clean,
-209,CAND_0089947,209,50.0,0.0,40.0,0,False,False,clean,
-210,CAND_0091580,210,50.0,0.0,40.0,0,False,False,clean,
-211,CAND_0091745,211,50.0,0.0,40.0,0,False,False,clean,
-212,CAND_0098288,212,50.0,0.0,40.0,0,False,False,clean,
-213,CAND_0099751,213,50.0,0.0,40.0,0,False,False,suspicious,"QLoRA claims 42 months of use, while approximately 39 months are possible since 2023-05-23."
-214,CAND_0001151,214,49.0,0.0,39.2,0,False,False,clean,
-215,CAND_0001494,215,49.0,0.0,39.2,0,False,False,clean,
-216,CAND_0001930,216,49.0,0.0,39.2,0,False,False,clean,
-217,CAND_0003841,217,49.0,0.0,39.2,0,False,False,clean,
-218,CAND_0004972,218,49.0,0.0,39.2,0,False,False,clean,
-219,CAND_0006538,219,49.0,0.0,39.2,0,False,False,clean,
-220,CAND_0008618,220,49.0,0.0,39.2,0,False,False,clean,
-221,CAND_0009200,221,49.0,0.0,39.2,0,False,False,clean,
-222,CAND_0010283,222,49.0,0.0,39.2,0,False,False,clean,
-223,CAND_0010541,223,49.0,0.0,39.2,0,False,False,clean,
-224,CAND_0011757,224,49.0,0.0,39.2,0,False,False,clean,
-225,CAND_0015581,225,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 51 months of use, while approximately 39 months are possible since 2023-05-23."
-226,CAND_0015760,226,49.0,0.0,39.2,0,False,False,clean,
-227,CAND_0022852,227,49.0,0.0,39.2,0,False,False,clean,
-228,CAND_0024630,228,49.0,0.0,39.2,0,False,False,clean,
-229,CAND_0025640,229,49.0,0.0,39.2,0,False,False,clean,
-230,CAND_0025882,230,49.0,0.0,39.2,0,False,False,clean,
-231,CAND_0027218,231,49.0,0.0,39.2,0,False,False,clean,
-232,CAND_0027723,232,49.0,0.0,39.2,0,False,False,clean,
-233,CAND_0028287,233,49.0,0.0,39.2,0,False,False,clean,
-234,CAND_0028318,234,49.0,0.0,39.2,0,False,False,clean,
-235,CAND_0029971,235,49.0,0.0,39.2,0,False,False,clean,
-236,CAND_0030550,236,49.0,0.0,39.2,0,False,False,clean,
-237,CAND_0033445,237,49.0,0.0,39.2,0,False,False,clean,
-238,CAND_0033749,238,49.0,0.0,39.2,0,False,False,clean,
-239,CAND_0038368,239,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 49 months of use, while approximately 39 months are possible since 2023-05-23."
-240,CAND_0040310,240,49.0,0.0,39.2,0,False,False,clean,
-241,CAND_0040677,241,49.0,0.0,39.2,0,False,False,clean,
-242,CAND_0041402,242,49.0,0.0,39.2,0,False,False,clean,
-243,CAND_0042370,243,49.0,0.0,39.2,0,False,False,clean,
-244,CAND_0042441,244,49.0,0.0,39.2,0,False,False,clean,
-245,CAND_0044091,245,49.0,0.0,39.2,0,False,False,clean,
-246,CAND_0044696,246,49.0,0.0,39.2,0,False,False,clean,
-247,CAND_0045475,247,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 59 months of use, while approximately 39 months are possible since 2023-05-23."
-248,CAND_0045862,248,49.0,0.0,39.2,0,False,False,clean,
-249,CAND_0046459,249,49.0,0.0,39.2,0,False,False,clean,
-250,CAND_0047327,250,49.0,0.0,39.2,0,False,False,clean,
-251,CAND_0048469,251,49.0,0.0,39.2,0,False,False,clean,
-252,CAND_0049543,252,49.0,0.0,39.2,0,False,False,clean,
-253,CAND_0049615,253,49.0,0.0,39.2,0,False,False,clean,
-254,CAND_0051466,254,49.0,0.0,39.2,0,False,False,clean,
-255,CAND_0052169,255,49.0,0.0,39.2,0,False,False,clean,
-256,CAND_0052360,256,49.0,0.0,39.2,0,False,False,clean,
-257,CAND_0052498,257,49.0,0.0,39.2,0,False,False,clean,
-258,CAND_0053934,258,49.0,0.0,39.2,0,False,False,clean,
-259,CAND_0054100,259,49.0,0.0,39.2,0,False,False,clean,
-260,CAND_0055139,260,49.0,0.0,39.2,0,False,False,clean,
-261,CAND_0055362,261,49.0,0.0,39.2,0,False,False,clean,
-262,CAND_0058426,262,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 57 months of use, while approximately 39 months are possible since 2023-05-23."
-263,CAND_0060340,263,49.0,0.0,39.2,0,False,False,clean,
-264,CAND_0062561,264,49.0,0.0,39.2,0,False,False,clean,
-265,CAND_0064130,265,49.0,0.0,39.2,0,False,False,clean,
-266,CAND_0064331,266,49.0,0.0,39.2,0,False,False,clean,
-267,CAND_0065277,267,49.0,0.0,39.2,0,False,False,clean,
-268,CAND_0065805,268,49.0,0.0,39.2,0,False,False,clean,
-269,CAND_0065991,269,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 41 months of use, while approximately 39 months are possible since 2023-05-23."
-270,CAND_0067041,270,49.0,0.0,39.2,0,False,False,clean,
-271,CAND_0067322,271,49.0,0.0,39.2,0,False,False,clean,
-272,CAND_0067717,272,49.0,0.0,39.2,0,False,False,clean,
-273,CAND_0068393,273,49.0,0.0,39.2,0,False,False,clean,
-274,CAND_0068456,274,49.0,0.0,39.2,0,False,False,clean,
-275,CAND_0068777,275,49.0,0.0,39.2,0,False,False,clean,
-276,CAND_0069386,276,49.0,0.0,39.2,0,False,False,clean,
-277,CAND_0070544,277,49.0,0.0,39.2,0,False,False,clean,
-278,CAND_0071033,278,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 55 months of use, while approximately 39 months are possible since 2023-05-23."
-279,CAND_0071432,279,49.0,0.0,39.2,0,False,False,clean,
-280,CAND_0071913,280,49.0,0.0,39.2,0,False,False,clean,
-281,CAND_0073556,281,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 41 months of use, while approximately 39 months are possible since 2023-05-23."
-282,CAND_0073633,282,49.0,0.0,39.2,0,False,False,clean,
-283,CAND_0073781,283,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 45 months of use, while approximately 39 months are possible since 2023-05-23."
-284,CAND_0073917,284,49.0,0.0,39.2,0,False,False,clean,
-285,CAND_0074024,285,49.0,0.0,39.2,0,False,False,clean,
-286,CAND_0074339,286,49.0,0.0,39.2,0,False,False,clean,
-287,CAND_0077504,287,49.0,0.0,39.2,0,False,False,suspicious,"QLoRA claims 43 months of use, while approximately 39 months are possible since 2023-05-23."
-288,CAND_0080051,288,49.0,0.0,39.2,0,False,False,clean,
-289,CAND_0080472,289,49.0,0.0,39.2,0,False,False,clean,
-290,CAND_0081563,290,49.0,0.0,39.2,0,False,False,clean,
-291,CAND_0082489,291,49.0,0.0,39.2,0,False,False,clean,
-292,CAND_0082618,292,49.0,0.0,39.2,0,False,False,clean,
-293,CAND_0082913,293,49.0,0.0,39.2,0,False,False,clean,
-294,CAND_0083790,294,49.0,0.0,39.2,0,False,False,clean,
-295,CAND_0087006,295,49.0,0.0,39.2,0,False,False,clean,
-296,CAND_0088049,296,49.0,0.0,39.2,0,False,False,clean,
-297,CAND_0093883,297,49.0,0.0,39.2,0,False,False,clean,
-298,CAND_0094685,298,49.0,0.0,39.2,0,False,False,clean,
-299,CAND_0096209,299,49.0,0.0,39.2,0,False,False,clean,
-300,CAND_0097896,300,49.0,0.0,39.2,0,False,False,clean,
-301,CAND_0099269,301,49.0,0.0,39.2,0,False,False,clean,
-302,CAND_0099675,302,49.0,0.0,39.2,0,False,False,clean,
-303,CAND_0000273,303,48.0,0.0,38.4,0,False,False,clean,
-304,CAND_0001651,304,48.0,0.0,38.4,0,False,False,clean,
-305,CAND_0004131,305,48.0,0.0,38.4,0,False,False,clean,
-306,CAND_0006437,306,48.0,0.0,38.4,0,False,False,clean,
-307,CAND_0006833,307,48.0,0.0,38.4,0,False,False,clean,
-308,CAND_0009505,308,48.0,0.0,38.4,0,False,False,clean,
-309,CAND_0011220,309,48.0,0.0,38.4,0,False,False,clean,
-310,CAND_0012988,310,48.0,0.0,38.4,0,False,False,clean,
-311,CAND_0013393,311,48.0,0.0,38.4,0,False,False,clean,
-312,CAND_0013665,312,48.0,0.0,38.4,0,False,False,suspicious,"QLoRA claims 45 months of use, while approximately 39 months are possible since 2023-05-23."
-313,CAND_0015478,313,48.0,0.0,38.4,0,False,False,clean,
-314,CAND_0022274,314,48.0,0.0,38.4,0,False,False,clean,
-315,CAND_0024147,315,48.0,0.0,38.4,0,False,False,clean,
-316,CAND_0032089,316,48.0,0.0,38.4,0,False,False,clean,
-317,CAND_0032271,317,48.0,0.0,38.4,0,False,False,clean,
-318,CAND_0040946,318,48.0,0.0,38.4,0,False,False,clean,
-319,CAND_0041348,319,48.0,0.0,38.4,0,False,False,clean,
-320,CAND_0044576,320,48.0,0.0,38.4,0,False,False,clean,
-321,CAND_0046924,321,48.0,0.0,38.4,0,False,False,clean,
-322,CAND_0047492,322,48.0,0.0,38.4,0,False,False,clean,
-323,CAND_0050707,323,48.0,0.0,38.4,0,False,False,clean,
-324,CAND_0052706,324,48.0,0.0,38.4,0,False,False,clean,
-325,CAND_0052827,325,48.0,0.0,38.4,0,False,False,clean,
-326,CAND_0054059,326,48.0,0.0,38.4,0,False,False,clean,
-327,CAND_0058412,327,48.0,0.0,38.4,0,False,False,clean,
-328,CAND_0061352,328,48.0,0.0,38.4,0,False,False,clean,
-329,CAND_0066798,329,48.0,0.0,38.4,0,False,False,clean,
-330,CAND_0067535,330,48.0,0.0,38.4,0,False,False,clean,
-331,CAND_0067643,331,48.0,0.0,38.4,0,False,False,clean,
-332,CAND_0069232,332,48.0,0.0,38.4,0,False,False,clean,
-333,CAND_0069925,333,48.0,0.0,38.4,0,False,False,clean,
-334,CAND_0070333,334,48.0,0.0,38.4,0,False,False,clean,
-335,CAND_0072091,335,48.0,0.0,38.4,0,False,False,clean,
-336,CAND_0074325,336,48.0,0.0,38.4,0,False,False,clean,
-337,CAND_0074621,337,48.0,0.0,38.4,0,False,False,clean,
-338,CAND_0080534,338,48.0,0.0,38.4,0,False,False,clean,
-339,CAND_0087529,339,48.0,0.0,38.4,0,False,False,clean,
-340,CAND_0000422,340,47.0,0.0,37.6,0,False,False,clean,
-341,CAND_0006354,341,47.0,0.0,37.6,0,False,False,clean,
-342,CAND_0013456,342,47.0,0.0,37.6,0,False,False,clean,
-343,CAND_0018925,343,47.0,0.0,37.6,0,False,False,clean,
-344,CAND_0021491,344,47.0,0.0,37.6,0,False,False,clean,
-345,CAND_0033179,345,47.0,0.0,37.6,0,False,False,clean,
-346,CAND_0034177,346,47.0,0.0,37.6,0,False,False,clean,
-347,CAND_0043450,347,47.0,0.0,37.6,0,False,False,clean,
-348,CAND_0048360,348,47.0,0.0,37.6,0,False,False,clean,
-349,CAND_0050146,349,47.0,0.0,37.6,0,False,False,clean,
-350,CAND_0062772,350,47.0,0.0,37.6,0,False,False,clean,
-351,CAND_0071747,351,47.0,0.0,37.6,0,False,False,clean,
-352,CAND_0073450,352,47.0,0.0,37.6,0,False,False,clean,
-353,CAND_0073982,353,47.0,0.0,37.6,0,False,False,clean,
-354,CAND_0075715,354,47.0,0.0,37.6,0,False,False,clean,
-355,CAND_0079830,355,47.0,0.0,37.6,0,False,False,clean,
-356,CAND_0098952,356,47.0,0.0,37.6,0,False,False,clean,
-357,CAND_0050297,357,46.0,0.0,36.8,0,False,False,clean,
-358,CAND_0053527,358,46.0,0.0,36.8,0,False,False,suspicious,"QLoRA claims 42 months of use, while approximately 39 months are possible since 2023-05-23."
-359,CAND_0054173,359,46.0,0.0,36.8,0,False,False,clean,
-360,CAND_0058300,360,46.0,0.0,36.8,0,False,False,clean,
-361,CAND_0001940,361,45.0,0.0,36.0,0,False,False,clean,
-362,CAND_0003557,362,45.0,0.0,36.0,0,False,False,clean,
-363,CAND_0003609,363,45.0,0.0,36.0,0,False,False,clean,
-364,CAND_0011140,364,45.0,0.0,36.0,0,False,False,clean,
-365,CAND_0011326,365,45.0,0.0,36.0,0,False,False,clean,
-366,CAND_0013536,366,45.0,0.0,36.0,0,False,False,suspicious,"QLoRA claims 74 months of use, while approximately 39 months are possible since 2023-05-23."
-367,CAND_0013613,367,45.0,0.0,36.0,0,False,False,clean,
-368,CAND_0019200,368,45.0,0.0,36.0,0,False,False,clean,
-369,CAND_0023093,369,45.0,0.0,36.0,0,False,False,clean,
-370,CAND_0023559,370,45.0,0.0,36.0,0,False,False,clean,
-371,CAND_0024466,371,45.0,0.0,36.0,0,False,False,clean,
-372,CAND_0024620,372,45.0,0.0,36.0,0,False,False,suspicious,"QLoRA claims 70 months of use, while approximately 39 months are possible since 2023-05-23."
-373,CAND_0028527,373,45.0,0.0,36.0,0,False,False,clean,
-374,CAND_0029671,374,45.0,0.0,36.0,0,False,False,clean,
-375,CAND_0030031,375,45.0,0.0,36.0,0,False,False,suspicious,"QLoRA claims 61 months of use, while approximately 39 months are possible since 2023-05-23."
-376,CAND_0030827,376,45.0,0.0,36.0,0,False,False,clean,
-377,CAND_0031397,377,45.0,0.0,36.0,0,False,False,clean,
-378,CAND_0031703,378,45.0,0.0,36.0,0,False,False,clean,
-379,CAND_0032179,379,45.0,0.0,36.0,0,False,False,clean,
-380,CAND_0032515,380,45.0,0.0,36.0,0,False,False,clean,
-381,CAND_0035764,381,45.0,0.0,36.0,0,False,False,clean,
-382,CAND_0041568,382,45.0,0.0,36.0,0,False,False,clean,
-383,CAND_0043860,383,45.0,0.0,36.0,0,False,False,clean,
-384,CAND_0050553,384,45.0,0.0,36.0,0,False,False,clean,
-385,CAND_0051003,385,45.0,0.0,36.0,0,False,False,suspicious,"QLoRA claims 43 months of use, while approximately 39 months are possible since 2023-05-23."
-386,CAND_0051219,386,45.0,0.0,36.0,0,False,False,clean,
-387,CAND_0053591,387,45.0,0.0,36.0,0,False,False,clean,
-388,CAND_0055992,388,45.0,0.0,36.0,0,False,False,clean,
-389,CAND_0060257,389,45.0,0.0,36.0,0,False,False,clean,
-390,CAND_0060303,390,45.0,0.0,36.0,0,False,False,clean,
-391,CAND_0063585,391,45.0,0.0,36.0,0,False,False,clean,
-392,CAND_0068012,392,45.0,0.0,36.0,0,False,False,clean,
-393,CAND_0068985,393,45.0,0.0,36.0,0,False,False,clean,
-394,CAND_0076482,394,45.0,0.0,36.0,0,False,False,clean,
-395,CAND_0076904,395,45.0,0.0,36.0,0,False,False,clean,
-396,CAND_0078042,396,45.0,0.0,36.0,0,False,False,suspicious,"QLoRA claims 42 months of use, while approximately 39 months are possible since 2023-05-23."
-397,CAND_0078669,397,45.0,0.0,36.0,0,False,False,clean,
-398,CAND_0087264,398,45.0,0.0,36.0,0,False,False,clean,
-399,CAND_0087316,399,45.0,0.0,36.0,0,False,False,clean,
-400,CAND_0090300,400,45.0,0.0,36.0,0,False,False,clean,
-401,CAND_0096104,401,45.0,0.0,36.0,0,False,False,clean,
-402,CAND_0008978,402,44.0,0.0,35.2,0,False,False,clean,
-403,CAND_0014858,403,44.0,0.0,35.2,0,False,False,clean,
-404,CAND_0023458,404,44.0,0.0,35.2,0,False,False,clean,
-405,CAND_0026362,405,44.0,0.0,35.2,0,False,False,clean,
-406,CAND_0028838,406,44.0,0.0,35.2,0,False,False,clean,
-407,CAND_0038099,407,44.0,0.0,35.2,0,False,False,clean,
-408,CAND_0048690,408,44.0,0.0,35.2,0,False,False,clean,
-409,CAND_0066690,409,44.0,0.0,35.2,0,False,False,clean,
-410,CAND_0069773,410,44.0,0.0,35.2,0,False,False,clean,
-411,CAND_0078508,411,44.0,0.0,35.2,0,False,False,clean,
-412,CAND_0088237,412,44.0,0.0,35.2,0,False,False,clean,
-413,CAND_0002120,413,43.0,0.0,34.4,0,False,False,clean,
-414,CAND_0002426,414,43.0,0.0,34.4,0,False,False,clean,
-415,CAND_0016267,415,43.0,0.0,34.4,0,False,False,clean,
-416,CAND_0017178,416,43.0,0.0,34.4,0,False,False,clean,
-417,CAND_0021827,417,43.0,0.0,34.4,0,False,False,clean,
-418,CAND_0035315,418,43.0,0.0,34.4,0,False,False,clean,
-419,CAND_0036520,419,43.0,0.0,34.4,0,False,False,clean,
-420,CAND_0052735,420,43.0,0.0,34.4,0,False,False,clean,
-421,CAND_0056262,421,43.0,0.0,34.4,0,False,False,clean,
-422,CAND_0061479,422,43.0,0.0,34.4,0,False,False,clean,
-423,CAND_0076995,423,43.0,0.0,34.4,0,False,False,clean,
-424,CAND_0084391,424,43.0,0.0,34.4,0,False,False,clean,
-425,CAND_0084681,425,43.0,0.0,34.4,0,False,False,clean,
-426,CAND_0086154,426,43.0,0.0,34.4,0,False,False,clean,
-427,CAND_0000666,427,42.0,0.0,33.6,0,False,False,clean,
-428,CAND_0001819,428,42.0,0.0,33.6,0,False,False,clean,
-429,CAND_0022463,429,42.0,0.0,33.6,0,False,False,clean,
-430,CAND_0023583,430,42.0,0.0,33.6,0,False,False,clean,
-431,CAND_0034164,431,42.0,0.0,33.6,0,False,False,clean,
-432,CAND_0075481,432,42.0,0.0,33.6,0,False,False,clean,
-433,CAND_0097472,433,42.0,0.0,33.6,0,False,False,clean,
-434,CAND_0046526,434,41.0,0.0,32.8,0,False,False,clean,
-435,CAND_0067609,435,41.0,0.0,32.8,0,False,False,clean,
-436,CAND_0092989,436,41.0,0.0,32.8,0,False,False,clean,
-437,CAND_0094025,437,41.0,0.0,32.8,0,False,False,clean,
-438,CAND_0095457,438,41.0,0.0,32.8,0,False,False,clean,
-439,CAND_0000981,439,40.0,0.0,32.0,0,False,False,clean,
-440,CAND_0003506,440,40.0,0.0,32.0,0,False,False,clean,
-441,CAND_0008139,441,40.0,0.0,32.0,0,False,False,clean,
-442,CAND_0011125,442,40,0.0,32.0,0,False,False,clean,
-443,CAND_0013988,443,40.0,0.0,32.0,0,False,False,clean,
-444,CAND_0018653,444,40.0,0.0,32.0,0,False,False,clean,
-445,CAND_0022413,445,40.0,0.0,32.0,0,False,False,clean,
-446,CAND_0023076,446,40,0.0,32.0,0,False,False,clean,
-447,CAND_0023215,447,40.0,0.0,32.0,0,False,False,clean,
-448,CAND_0025663,448,40.0,0.0,32.0,0,False,False,clean,
-449,CAND_0025939,449,40,0.0,32.0,0,False,False,clean,
-450,CAND_0029336,450,40,0.0,32.0,0,False,False,suspicious,"QLoRA claims 43 months of use, while approximately 39 months are possible since 2023-05-23."
-451,CAND_0030207,451,40.0,0.0,32.0,0,False,False,clean,
-452,CAND_0031306,452,40,0.0,32.0,0,False,False,clean,
-453,CAND_0033911,453,40,0.0,32.0,0,False,False,clean,
-454,CAND_0036184,454,40,0.0,32.0,0,False,False,clean,
-455,CAND_0038328,455,40,0.0,32.0,0,False,False,clean,
-456,CAND_0039521,456,40,0.0,32.0,0,False,False,clean,
-457,CAND_0041016,457,40.0,0.0,32.0,0,False,False,clean,
-458,CAND_0041233,458,40,0.0,32.0,0,False,False,clean,
-459,CAND_0043904,459,40.0,0.0,32.0,0,False,False,clean,
-460,CAND_0043958,460,40.0,0.0,32.0,0,False,False,clean,
-461,CAND_0045613,461,40.0,0.0,32.0,0,False,False,clean,
-462,CAND_0046095,462,40.0,0.0,32.0,0,False,False,clean,
-463,CAND_0049217,463,40.0,0.0,32.0,0,False,False,clean,
-464,CAND_0051630,464,40.0,0.0,32.0,0,False,False,clean,
-465,CAND_0052030,465,40.0,0.0,32.0,0,False,False,clean,
-466,CAND_0055673,466,40.0,0.0,32.0,0,False,False,clean,
-467,CAND_0055842,467,40,0.0,32.0,0,False,False,suspicious,"QLoRA claims 44 months of use, while approximately 39 months are possible since 2023-05-23."
-468,CAND_0057134,468,40,0.0,32.0,0,False,False,clean,
-469,CAND_0057529,469,40.0,0.0,32.0,0,False,False,clean,
-470,CAND_0058152,470,40,0.0,32.0,0,False,False,clean,
-471,CAND_0058882,471,40,0.0,32.0,0,False,False,clean,
-472,CAND_0064256,472,40.0,0.0,32.0,0,False,False,clean,
-473,CAND_0066713,473,40.0,0.0,32.0,0,False,False,clean,
-474,CAND_0067403,474,40.0,0.0,32.0,0,False,False,clean,
-475,CAND_0072195,475,40,0.0,32.0,0,False,False,clean,
-476,CAND_0074342,476,40.0,0.0,32.0,0,False,False,clean,
-477,CAND_0075439,477,40.0,0.0,32.0,0,False,False,clean,
-478,CAND_0077784,478,40.0,0.0,32.0,0,False,False,clean,
-479,CAND_0077881,479,40,0.0,32.0,0,False,False,clean,
-480,CAND_0082291,480,40.0,0.0,32.0,0,False,False,clean,
-481,CAND_0086028,481,40.0,0.0,32.0,0,False,False,clean,
-482,CAND_0086062,482,40.0,0.0,32.0,0,False,False,clean,
-483,CAND_0088354,483,40,0.0,32.0,0,False,False,clean,
-484,CAND_0091254,484,40.0,0.0,32.0,0,False,False,clean,
-485,CAND_0092278,485,40.0,0.0,32.0,0,False,False,suspicious,"QLoRA claims 79 months of use, while approximately 39 months are possible since 2023-05-23."
-486,CAND_0092468,486,40,0.0,32.0,0,False,False,clean,
-487,CAND_0093185,487,40.0,0.0,32.0,0,False,False,clean,
-488,CAND_0095567,488,40.0,0.0,32.0,0,False,False,clean,
-489,CAND_0095884,489,40.0,0.0,32.0,0,False,False,suspicious,"QLoRA claims 41 months of use, while approximately 39 months are possible since 2023-05-23."
-490,CAND_0006850,490,39.0,0.0,31.2,0,False,False,clean,
-491,CAND_0008533,491,39.0,0.0,31.2,0,False,False,clean,
-492,CAND_0012798,492,39.0,0.0,31.2,0,False,False,clean,
-493,CAND_0012840,493,39.0,0.0,31.2,0,False,False,clean,
-494,CAND_0015493,494,39.0,0.0,31.2,0,False,False,clean,
-495,CAND_0031143,495,39.0,0.0,31.2,0,False,False,clean,
-496,CAND_0034148,496,39.0,0.0,31.2,0,False,False,clean,
-497,CAND_0038206,497,39.0,0.0,31.2,0,False,False,clean,
-498,CAND_0084090,498,39.0,0.0,31.2,0,False,False,clean,
-499,CAND_0086790,499,39.0,0.0,31.2,0,False,False,clean,
-500,CAND_0007596,500,38.0,0.0,30.4,0,False,False,clean,
-501,CAND_0016678,501,38.0,0.0,30.4,0,False,False,clean,
-502,CAND_0032270,502,38.0,0.0,30.4,0,False,False,clean,
-503,CAND_0033650,503,38.0,0.0,30.4,0,False,False,suspicious,"QLoRA claims 60 months of use, while approximately 39 months are possible since 2023-05-23."
-504,CAND_0049340,504,38.0,0.0,30.4,0,False,False,clean,
-505,CAND_0054377,505,38.0,0.0,30.4,0,False,False,clean,
-506,CAND_0062658,506,38.0,0.0,30.4,0,False,False,clean,
-507,CAND_0075409,507,38.0,0.0,30.4,0,False,False,clean,
-508,CAND_0079888,508,38.0,0.0,30.4,0,False,False,clean,
-509,CAND_0024170,509,37.0,0.0,29.6,0,False,False,clean,
-510,CAND_0044463,510,37.0,0.0,29.6,0,False,False,clean,
-511,CAND_0057162,511,37.0,0.0,29.6,0,False,False,suspicious,"QLoRA claims 49 months of use, while approximately 39 months are possible since 2023-05-23."
-512,CAND_0060699,512,37.0,0.0,29.6,0,False,False,clean,
-513,CAND_0005303,513,36.0,0.0,28.8,0,False,False,clean,
-514,CAND_0021729,514,36.0,0.0,28.8,0,False,False,clean,
-515,CAND_0046108,515,36.0,0.0,28.8,0,False,False,clean,
-516,CAND_0093540,516,36.0,0.0,28.8,0,False,False,clean,
-517,CAND_0099965,517,36.0,0.0,28.8,0,False,False,clean,
-518,CAND_0023587,518,35.0,0.0,28.0,0,False,False,clean,
-519,CAND_0044565,519,35.0,0.0,28.0,0,False,False,clean,
-520,CAND_0056058,520,35.0,0.0,28.0,0,False,False,clean,
-521,CAND_0087494,521,35.0,0.0,28.0,0,False,False,clean,
-522,CAND_0094023,522,35.0,0.0,28.0,0,False,False,clean,
-523,CAND_0094916,523,35.0,0.0,28.0,0,False,False,clean,
-524,CAND_0051936,524,34.0,0.0,27.2,0,False,False,clean,
-525,CAND_0086657,525,34.0,0.0,27.2,0,False,False,clean,
-526,CAND_0012888,526,33.0,0.0,26.4,0,False,False,clean,
-527,CAND_0024203,527,33.0,0.0,26.4,0,False,False,clean,
-528,CAND_0061177,528,32.0,0.0,25.6,0,False,False,clean,
-529,CAND_0007874,529,31.0,0.0,24.8,0,False,False,clean,
-530,CAND_0018722,530,30.0,0.0,24.0,0,False,False,clean,
-531,CAND_0041611,531,30.0,0.0,24.0,0,False,False,suspicious,"QLoRA claims 61 months of use, while approximately 39 months are possible since 2023-05-23."
-532,CAND_0043312,532,30.0,0.0,24.0,0,False,False,clean,
-533,CAND_0072660,533,30.0,0.0,24.0,0,False,False,suspicious,"QLoRA claims 50 months of use, while approximately 39 months are possible since 2023-05-23."
-534,CAND_0081686,534,30.0,0.0,24.0,0,False,False,suspicious,"QLoRA claims 75 months of use, while approximately 39 months are possible since 2023-05-23."
-535,CAND_0089726,535,27.0,0.0,21.6,0,False,False,clean,
-536,CAND_0085557,536,24.0,0.0,19.2,0,False,False,clean,
-537,CAND_0003582,537,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: MLflow, Photoshop, Content Writing."
-538,CAND_0003599,538,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-04-18, before its verified earliest start 2023-01-01."
-539,CAND_0004112,539,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2019-12-30, before its verified earliest start 2023-01-01."
-540,CAND_0005191,540,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-03-29, before its verified earliest start 2023-07-01."
-541,CAND_0005269,541,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-15, before its verified earliest start 2023-07-01."
-542,CAND_0005509,542,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-08-12, before its verified earliest start 2023-07-01."
-543,CAND_0005704,543,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-03-07, before its verified earliest start 2023-07-01."
-544,CAND_0008049,544,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-03-29, before its verified earliest start 2023-07-01."
-545,CAND_0011263,545,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-06-22, before its verified earliest start 2023-07-01."
-546,CAND_0011327,546,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-10-15, before its verified earliest start 2023-01-01."
-547,CAND_0011432,547,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-12-24, before its verified earliest start 2023-01-01.|QLoRA claims 75 months of use, while approximately 39 months are possible since 2023-05-23."
-548,CAND_0011687,548,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2018-11-05, before its verified earliest start 2023-01-01.|Role ending 2022-02-17 explicitly claims Llama 2, released 2023-07-18.|Role ending 2022-02-17 explicitly claims Mistral 7B, released 2023-09-27.|Role ending 2022-02-17 explicitly claims QLoRA, released 2023-05-23."
-549,CAND_0011707,549,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-09-20, before its verified earliest start 2023-01-01.|QLoRA claims 57 months of use, while approximately 39 months are possible since 2023-05-23."
-550,CAND_0012837,550,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
-551,CAND_0014063,551,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-15, before its verified earliest start 2023-07-01."
-552,CAND_0015097,552,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-06-27, before its verified earliest start 2023-01-01."
-553,CAND_0015528,553,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-02-17, before its verified earliest start 2023-01-01."
-554,CAND_0016000,554,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: TypeScript, Go, Docker, Hadoop, Photoshop."
-555,CAND_0016170,555,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-04-14, before its verified earliest start 2023-01-01."
-556,CAND_0016657,556,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-04-16, before its verified earliest start 2023-07-01."
-557,CAND_0017960,557,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2018-09-22, before its verified earliest start 2023-07-01.|Role ending 2020-01-15 explicitly claims GPT-4, released 2023-03-14.|QLoRA claims 63 months of use, while approximately 39 months are possible since 2023-05-23."
-558,CAND_0018013,558,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-05-18, before its verified earliest start 2023-07-01."
-559,CAND_0018293,559,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-12-24, before its verified earliest start 2023-07-01."
-560,CAND_0018701,560,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-11-14, before its verified earliest start 2023-01-01."
-561,CAND_0019159,561,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-04-28, before its verified earliest start 2023-01-01."
-562,CAND_0021410,562,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-12-14, before its verified earliest start 2023-01-01.|Employment at Sarvam AI starts 2022-06-10, before its verified earliest start 2023-07-01."
-563,CAND_0022232,563,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-08-16, before its verified earliest start 2023-01-01."
-564,CAND_0022720,564,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-03-14, before its verified earliest start 2023-07-01."
-565,CAND_0024878,565,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-10-25, before its verified earliest start 2023-01-01."
-566,CAND_0025923,566,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-07-22, before its verified earliest start 2023-01-01."
-567,CAND_0028908,567,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
-568,CAND_0031068,568,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-01-18, before its verified earliest start 2023-01-01."
-569,CAND_0033311,569,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-12-19, before its verified earliest start 2023-07-01."
-570,CAND_0033817,570,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: JavaScript, BigQuery, Six Sigma, gRPC."
-571,CAND_0033842,571,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-09-18, before its verified earliest start 2023-01-01."
-572,CAND_0033861,572,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-08-26, before its verified earliest start 2023-07-01."
-573,CAND_0033972,573,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Airflow, OpenCV, Figma."
-574,CAND_0034849,574,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
-575,CAND_0035779,575,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-12-19, before its verified earliest start 2023-01-01."
-576,CAND_0036839,576,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: SAP, GCP, Rust."
-577,CAND_0036973,577,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-05-28, before its verified earliest start 2023-01-01."
-578,CAND_0040099,578,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01.|QLoRA claims 52 months of use, while approximately 39 months are possible since 2023-05-23."
-579,CAND_0042245,579,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Databricks, BentoML, Vue.js."
-580,CAND_0046649,580,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: SAP, Node.js, gRPC, Flask, Hadoop."
-581,CAND_0046689,581,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Node.js, SQL, gRPC, Spark."
-582,CAND_0048166,582,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-08-16, before its verified earliest start 2023-07-01."
-583,CAND_0048740,583,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: gRPC, Angular, Content Writing."
-584,CAND_0049978,584,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-02-17, before its verified earliest start 2023-07-01."
-585,CAND_0050454,585,0.0,0.0,0.0,0,False,False,suspicious,"QLoRA claims 87 months of use, while approximately 39 months are possible since 2023-05-23."
-586,CAND_0050765,586,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01."
-587,CAND_0051615,587,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-11-19, before its verified earliest start 2023-01-01."
-588,CAND_0052195,588,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-02-12, before its verified earliest start 2023-07-01."
-589,CAND_0055792,589,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Scrum, TTS, LoRA."
-590,CAND_0055905,590,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Rephrase.ai starts 2018-05-09, before its verified earliest start 2019-01-01."
-591,CAND_0056983,591,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Rust, Next.js, Redis, Salesforce CRM, MongoDB."
-592,CAND_0058517,592,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-04-23, before its verified earliest start 2023-01-01."
-593,CAND_0059400,593,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-04-13, before its verified earliest start 2023-07-01."
-594,CAND_0059520,594,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-01, before its verified earliest start 2023-07-01."
-595,CAND_0060642,595,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Milvus, Agile, Azure, Diffusion Models, MongoDB."
-596,CAND_0060835,596,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-05-18, before its verified earliest start 2023-07-01."
-597,CAND_0061156,597,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-15, before its verified earliest start 2023-07-01."
-598,CAND_0061339,598,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-04-27, before its verified earliest start 2023-01-01."
-599,CAND_0061655,599,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-11-14, before its verified earliest start 2023-01-01."
-600,CAND_0061722,600,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Terraform, GANs, Milvus, MongoDB, Speech Recognition."
-601,CAND_0063736,601,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-10-15, before its verified earliest start 2023-01-01."
-602,CAND_0063862,602,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-03-24, before its verified earliest start 2023-01-01."
-603,CAND_0063888,603,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Project Management, Accounting, MLOps, React, Webpack."
-604,CAND_0065052,604,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01."
-605,CAND_0065096,605,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: ETL, Tally, Flask, Rust."
-606,CAND_0065450,606,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-05-18, before its verified earliest start 2023-07-01."
-607,CAND_0065878,607,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Rephrase.ai starts 2018-06-08, before its verified earliest start 2019-01-01.|QLoRA claims 75 months of use, while approximately 39 months are possible since 2023-05-23."
-608,CAND_0065927,608,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2019-11-30, before its verified earliest start 2023-01-01."
-609,CAND_0066791,609,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-10-15, before its verified earliest start 2023-01-01."
-610,CAND_0067183,610,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-10-15, before its verified earliest start 2023-07-01."
-611,CAND_0068513,611,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01."
-612,CAND_0068932,612,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-09-15, before its verified earliest start 2023-01-01."
-613,CAND_0069248,613,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-03-17, before its verified earliest start 2023-07-01."
-614,CAND_0070429,614,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: MLOps, Figma, Accounting, YOLO, Java."
-615,CAND_0070653,615,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-07-22, before its verified earliest start 2023-01-01."
-616,CAND_0070808,616,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-03-29, before its verified earliest start 2023-01-01."
-617,CAND_0071115,617,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-09-25, before its verified earliest start 2023-01-01."
-618,CAND_0072032,618,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-07-27, before its verified earliest start 2023-01-01."
-619,CAND_0072232,619,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-07-10, before its verified earliest start 2023-07-01."
-620,CAND_0072379,620,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Azure, Redux, Illustrator, Spark."
-621,CAND_0073853,621,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: CI/CD, Marketing, GCP, Excel, AWS."
-622,CAND_0077296,622,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-08-26, before its verified earliest start 2023-07-01."
-623,CAND_0077343,623,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-04-21, before its verified earliest start 2023-07-01."
-624,CAND_0079662,624,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-08-12, before its verified earliest start 2023-01-01."
-625,CAND_0081480,625,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-12-14, before its verified earliest start 2023-07-01."
-626,CAND_0081778,626,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-08-21, before its verified earliest start 2023-07-01."
-627,CAND_0084283,627,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-11-14, before its verified earliest start 2023-07-01."
-628,CAND_0085851,628,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-10-18, before its verified earliest start 2023-07-01."
-629,CAND_0087120,629,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-05-23, before its verified earliest start 2023-01-01."
-630,CAND_0088385,630,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2019-06-03, before its verified earliest start 2023-01-01."
-631,CAND_0088441,631,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-11-14, before its verified earliest start 2023-07-01."
-632,CAND_0088878,632,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-02-26, before its verified earliest start 2023-01-01."
-633,CAND_0089406,633,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-05-11, before its verified earliest start 2023-01-01."
-634,CAND_0091039,634,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
-635,CAND_0093547,635,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-01-16, before its verified earliest start 2023-07-01.|Role ending 2020-12-17 explicitly claims Llama 2, released 2023-07-18.|Role ending 2020-12-17 explicitly claims Mistral 7B, released 2023-09-27.|Role ending 2020-12-17 explicitly claims QLoRA, released 2023-05-23.|QLoRA claims 49 months of use, while approximately 39 months are possible since 2023-05-23."
-636,CAND_0095140,636,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Kafka, QLoRA, CNN."
-637,CAND_0095317,637,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Webpack, Figma, dbt."
-638,CAND_0095480,638,0.0,0.0,0.0,0,False,False,verified_failure,"Expert proficiency with zero usage duration: Agile, React, Snowflake, Content Writing."
+2,CAND_0039754,4,100.0,98.657718,99.731544,2,True,True,clean,
+3,CAND_0041669,5,100.0,97.986577,99.597315,2,True,True,clean,
+4,CAND_0061257,7,100.0,97.315436,99.463087,3,True,True,clean,
+5,CAND_0068811,8,100.0,95.302013,99.060403,3,True,True,clean,
+6,CAND_0039383,3,100.0,93.288591,98.657718,-3,True,True,clean,
+7,CAND_0037980,15,98.0,99.328859,98.265772,8,True,True,clean,
+8,CAND_0046525,6,100.0,91.275168,98.255034,-2,True,True,clean,
+9,CAND_0077337,18,98.0,96.644295,97.728859,9,True,True,clean,
+10,CAND_0007009,13,98.0,95.973154,97.594631,3,True,True,clean,
+11,CAND_0005260,10,98.0,94.630872,97.326174,-1,True,True,clean,
+12,CAND_0028793,14,98.0,93.959732,97.191946,2,True,True,clean,
+13,CAND_0080766,19,98.0,92.61745,96.92349,6,True,True,clean,
+14,CAND_0086022,20,98.0,91.946309,96.789262,6,True,True,clean,
+15,CAND_0062247,17,98.0,90.604027,96.520805,2,True,True,clean,
+16,CAND_0010257,2,100.0,78.52349,95.704698,-14,True,True,clean,
+17,CAND_0093193,21,98.0,85.234899,95.44698,4,True,True,clean,
+18,CAND_0081846,22,96.0,89.932886,94.786577,4,True,True,clean,
+19,CAND_0000031,9,98.0,79.865772,94.373154,-10,True,True,clean,
+20,CAND_0006557,12,98.0,79.194631,94.238926,-8,True,True,clean,
+21,CAND_0088025,29,95.0,89.261745,93.852349,8,True,True,clean,
+22,CAND_0008425,24,95.0,88.590604,93.718121,2,True,True,clean,
+23,CAND_0050454,16,98.0,76.510067,93.702013,-7,True,True,clean,
+24,CAND_0055992,27,95.0,87.248322,93.449664,3,True,True,clean,
+25,CAND_0068351,28,95.0,86.577181,93.315436,3,True,True,clean,
+26,CAND_0092278,30,95.0,85.90604,93.181208,4,True,True,clean,
+27,CAND_0005649,11,98.0,73.154362,93.030872,-16,True,True,clean,
+28,CAND_0094759,31,95.0,84.563758,92.912752,3,True,True,clean,
+29,CAND_0046064,26,95.0,81.208054,92.241611,-3,True,True,clean,
+30,CAND_0010770,33,92.0,87.919463,91.183893,3,True,True,clean,
+31,CAND_0005538,23,95.0,75.167785,91.033557,-8,True,True,clean,
+32,CAND_0041611,25,95.0,68.456376,89.691275,-7,True,True,clean,
+33,CAND_0042029,35,89.0,81.879195,87.575839,2,True,True,clean,
+34,CAND_0030468,34,89.0,77.181208,86.636242,0,True,True,clean,
+35,CAND_0075249,32,93.0,61.073826,86.614765,-3,True,True,clean,
+36,CAND_0099401,48,87.0,83.892617,86.378523,12,True,True,clean,
+37,CAND_0066999,36,89.0,75.838926,86.367785,-1,True,True,clean,
+38,CAND_0060072,45,87.0,77.852349,85.17047,7,True,True,clean,
+39,CAND_0044222,49,86.0,80.536913,84.907383,10,True,True,clean,
+40,CAND_0001610,53,85.0,83.221477,84.644295,13,True,True,clean,
+41,CAND_0006418,37,87.0,74.496644,84.499329,-4,True,True,clean,
+42,CAND_0089552,47,87.0,71.14094,83.828188,5,True,True,clean,
+43,CAND_0031593,66,84.0,82.550336,83.710067,23,True,True,clean,
+44,CAND_0047721,43,87.0,67.114094,83.022819,-1,True,True,clean,
+45,CAND_0061265,58,85.0,72.483221,82.496644,13,True,True,clean,
+46,CAND_0019480,41,87.0,64.42953,82.485906,-5,True,True,clean,
+47,CAND_0044883,50,86.0,67.785235,82.357047,3,True,True,clean,
+48,CAND_0044855,42,87.0,63.087248,82.21745,-6,True,True,clean,
+49,CAND_0058575,69,84.0,73.825503,81.965101,20,True,True,clean,
+50,CAND_0052328,44,87.0,61.744966,81.948993,-6,True,True,clean,
+51,CAND_0064904,70,84.0,71.812081,81.562416,19,True,True,clean,
+52,CAND_0016163,63,84.0,70.469799,81.29396,11,True,True,clean,
+53,CAND_0057563,56,85.0,66.442953,81.288591,3,True,True,clean,
+54,CAND_0018722,64,84.0,69.798658,81.159732,10,True,True,clean,
+55,CAND_0069905,60,85.0,65.771812,81.154362,5,True,True,clean,
+56,CAND_0011162,39,87.0,56.375839,80.875168,-17,True,True,clean,
+57,CAND_0083307,51,86.0,58.389262,80.477852,-6,True,True,clean,
+58,CAND_0010685,38,87.0,53.020134,80.204027,-20,True,True,clean,
+59,CAND_0079387,61,85.0,59.731544,79.946309,2,True,True,clean,
+60,CAND_0030348,80,82.0,69.127517,79.425503,20,True,True,clean,
+61,CAND_0020877,72,83.0,63.758389,79.151678,11,True,True,clean,
+62,CAND_0066376,59,85.0,55.033557,79.006711,-3,True,True,clean,
+63,CAND_0009691,77,82.0,65.100671,78.620134,14,True,True,clean,
+64,CAND_0030031,55,85.0,52.348993,78.469799,-9,True,True,clean,
+65,CAND_0081053,74,83.0,59.060403,78.212081,9,True,True,clean,
+66,CAND_0060054,57,85.0,51.006711,78.201342,-9,True,True,clean,
+67,CAND_0091909,52,86.0,44.966443,77.793289,-15,True,True,clean,
+68,CAND_0093912,76,83.0,54.362416,77.272483,8,True,True,clean,
+69,CAND_0096172,90,82.0,57.718121,77.143624,21,True,True,clean,
+70,CAND_0014440,40,87.0,36.912752,76.98255,-30,True,True,clean,
+71,CAND_0076163,98,81.0,60.402685,76.880537,27,True,True,clean,
+72,CAND_0030827,81,82.0,55.704698,76.74094,9,True,True,clean,
+73,CAND_0054394,68,84.0,46.979866,76.595973,-5,True,True,clean,
+74,CAND_0094056,88,82.0,53.691275,76.338255,14,True,True,clean,
+75,CAND_0026532,94,81.0,57.04698,76.209396,19,True,True,clean,
+76,CAND_0018549,54,85.0,40.939597,76.187919,-22,True,True,clean,
+77,CAND_0027691,65,84.0,43.624161,75.924832,-12,True,True,clean,
+78,CAND_0070398,46,87.0,30.872483,75.774497,-32,True,True,clean,
+79,CAND_0051630,112,79.0,62.416107,75.683221,33,True,True,clean,
+80,CAND_0096142,89,82.0,49.66443,75.532886,9,True,True,clean,
+81,CAND_0086151,75,83.0,45.637584,75.527517,-6,True,True,clean,
+82,CAND_0081852,71,84.0,41.610738,75.522148,-11,True,True,clean,
+83,CAND_0042506,83,82.0,48.993289,75.398658,0,True,True,clean,
+84,CAND_0039838,95,81.0,51.677852,75.13557,11,True,True,clean,
+85,CAND_0078002,99,81.0,50.33557,74.867114,14,True,True,clean,
+86,CAND_0065195,84,82.0,46.308725,74.861745,-2,True,True,clean,
+87,CAND_0013536,62,84.0,37.583893,74.716779,-25,True,True,clean,
+88,CAND_0027801,79,82.0,42.95302,74.190604,-9,True,True,clean,
+89,CAND_0049538,104,80.0,48.322148,73.66443,15,True,True,clean,
+90,CAND_0095528,101,81.0,44.295302,73.65906,11,True,True,clean,
+91,CAND_0050876,105,80.0,47.651007,73.530201,14,True,True,clean,
+92,CAND_0054123,97,81.0,42.281879,73.256376,5,True,True,clean,
+93,CAND_0012957,78,82.0,38.255034,73.251007,-15,True,True,clean,
+94,CAND_0042100,82,82.0,35.57047,72.714094,-12,True,True,clean,
+95,CAND_0070202,73,83.0,31.543624,72.708725,-22,True,True,clean,
+96,CAND_0043228,67,84.0,27.516779,72.703356,-29,True,True,clean,
+97,CAND_0087630,87,82.0,32.885906,72.177181,-10,True,True,clean,
+98,CAND_0076831,108,80.0,39.597315,71.919463,10,True,True,clean,
+99,CAND_0095619,111,80.0,38.926174,71.785235,12,True,True,clean,
+100,CAND_0024620,102,80.0,36.241611,71.248322,2,True,True,clean,
+101,CAND_0045250,96,81.0,32.214765,71.242953,-5,True,False,clean,
+102,CAND_0058688,107,80.0,34.899329,70.979866,5,True,False,clean,
+103,CAND_0074735,85,82.0,26.174497,70.834899,-18,True,False,clean,
+104,CAND_0083879,109,80.0,33.557047,70.711409,5,True,False,clean,
+105,CAND_0078492,86,82.0,25.503356,70.700671,-19,True,False,clean,
+106,CAND_0009837,93,81.0,28.85906,70.571812,-13,True,False,clean,
+107,CAND_0093331,110,80.0,29.530201,69.90604,3,True,False,clean,
+108,CAND_0036184,118,77.0,40.268456,69.653691,10,True,False,clean,
+109,CAND_0037944,103,80.0,23.489933,68.697987,-6,True,False,clean,
+110,CAND_0051004,106,80.0,22.818792,68.563758,-4,True,False,clean,
+111,CAND_0008239,91,81.0,17.449664,68.289933,-20,True,False,clean,
+112,CAND_0079284,100,81.0,16.778523,68.155705,-12,True,False,clean,
+113,CAND_0076251,124,76.0,34.228188,67.645638,11,True,False,clean,
+114,CAND_0084819,121,77.0,30.201342,67.640268,7,True,False,clean,
+115,CAND_0053695,113,79.0,22.147651,67.62953,-2,True,False,clean,
+116,CAND_0009024,92,81.0,12.751678,67.350336,-24,True,False,clean,
+117,CAND_0022812,116,77.0,28.187919,67.237584,-1,True,False,clean,
+118,CAND_0024466,117,77.0,24.832215,66.566443,-1,True,False,clean,
+119,CAND_0003977,114,78.0,20.134228,66.426846,-5,True,False,clean,
+120,CAND_0064270,123,76.0,26.845638,66.169128,3,True,False,clean,
+121,CAND_0099806,115,78.0,18.791946,66.158389,-6,True,False,clean,
+122,CAND_0036437,122,76.0,24.161074,65.632215,0,True,False,clean,
+123,CAND_0049896,120,77.0,15.436242,64.687248,-3,True,False,clean,
+124,CAND_0070485,127,75.0,20.805369,64.161074,3,True,False,clean,
+125,CAND_0037000,119,77.0,10.738255,63.747651,-6,True,False,clean,
+126,CAND_0007460,128,73.0,18.120805,62.024161,2,True,False,clean,
+127,CAND_0032807,126,75.0,7.38255,61.47651,-1,True,False,clean,
+128,CAND_0020350,125,75.0,4.697987,60.939597,-3,True,False,clean,
+129,CAND_0075439,130,72.0,14.09396,60.418792,1,True,False,clean,
+130,CAND_0039521,129,72.0,10.067114,59.613423,-1,True,False,clean,
+131,CAND_0020708,131,71.0,12.080537,59.216107,0,True,False,clean,
+132,CAND_0074225,135,70.0,14.765101,58.95302,3,True,False,clean,
+133,CAND_0056881,133,70.0,9.395973,57.879195,0,True,False,clean,
+134,CAND_0057701,134,70.0,6.711409,57.342282,0,True,False,clean,
+135,CAND_0092245,137,70.0,6.040268,57.208054,2,True,False,clean,
+136,CAND_0013613,132,70.0,5.369128,57.073826,-4,True,False,clean,
+137,CAND_0087364,136,70.0,2.684564,56.536913,-1,True,False,clean,
+138,CAND_0089546,138,63.0,8.724832,52.144966,0,True,False,clean,
+139,CAND_0033911,140,60.0,16.107383,51.221477,1,True,False,clean,
+140,CAND_0082489,142,60.0,13.422819,50.684564,2,True,False,clean,
+141,CAND_0015065,139,61.0,8.053691,50.410738,-2,True,False,clean,
+142,CAND_0065786,144,58.0,19.463087,50.292617,2,True,False,clean,
+143,CAND_0032216,143,58.0,11.409396,48.681879,0,True,False,clean,
+144,CAND_0033987,141,60.0,0.0,48.0,-3,True,False,clean,
+145,CAND_0067866,148,54.0,21.47651,47.495302,3,True,False,clean,
+146,CAND_0066035,145,58.0,4.026846,47.205369,-1,True,False,clean,
+147,CAND_0070333,146,56.0,3.355705,45.471141,-1,True,False,clean,
+148,CAND_0092706,149,54.0,2.013423,43.602685,1,True,False,clean,
+149,CAND_0010149,147,54.0,1.342282,43.468456,-2,True,False,clean,
+150,CAND_0018888,150,53.0,0.671141,42.534228,0,True,False,clean,
+151,CAND_0037160,151,53.0,0.0,42.4,0,False,False,clean,
+152,CAND_0043381,152,53.0,0.0,42.4,0,False,False,clean,
+153,CAND_0048558,153,53.0,0.0,42.4,0,False,False,clean,
+154,CAND_0053605,154,53.0,0.0,42.4,0,False,False,clean,
+155,CAND_0054829,155,53.0,0.0,42.4,0,False,False,clean,
+156,CAND_0062561,156,53.0,0.0,42.4,0,False,False,clean,
+157,CAND_0080344,157,53.0,0.0,42.4,0,False,False,clean,
+158,CAND_0093763,158,53.0,0.0,42.4,0,False,False,clean,
+159,CAND_0006538,159,52.0,0.0,41.6,0,False,False,clean,
+160,CAND_0025882,160,52.0,0.0,41.6,0,False,False,clean,
+161,CAND_0033445,161,52.0,0.0,41.6,0,False,False,clean,
+162,CAND_0035879,162,52.0,0.0,41.6,0,False,False,clean,
+163,CAND_0065277,163,52.0,0.0,41.6,0,False,False,clean,
+164,CAND_0067322,164,52.0,0.0,41.6,0,False,False,clean,
+165,CAND_0067643,165,52.0,0.0,41.6,0,False,False,clean,
+166,CAND_0073883,166,52.0,0.0,41.6,0,False,False,clean,
+167,CAND_0082913,167,52.0,0.0,41.6,0,False,False,clean,
+168,CAND_0001930,168,51.0,0.0,40.8,0,False,False,clean,
+169,CAND_0003841,169,51.0,0.0,40.8,0,False,False,clean,
+170,CAND_0008295,170,51.0,0.0,40.8,0,False,False,clean,
+171,CAND_0010603,171,51.0,0.0,40.8,0,False,False,clean,
+172,CAND_0013393,172,51.0,0.0,40.8,0,False,False,clean,
+173,CAND_0015967,173,51.0,0.0,40.8,0,False,False,clean,
+174,CAND_0034164,174,51.0,0.0,40.8,0,False,False,clean,
+175,CAND_0044248,175,51.0,0.0,40.8,0,False,False,clean,
+176,CAND_0046132,176,51.0,0.0,40.8,0,False,False,clean,
+177,CAND_0046924,177,51.0,0.0,40.8,0,False,False,clean,
+178,CAND_0055139,178,51.0,0.0,40.8,0,False,False,clean,
+179,CAND_0060315,179,51.0,0.0,40.8,0,False,False,clean,
+180,CAND_0072688,180,51.0,0.0,40.8,0,False,False,clean,
+181,CAND_0073007,181,51.0,0.0,40.8,0,False,False,clean,
+182,CAND_0073620,182,51.0,0.0,40.8,0,False,False,clean,
+183,CAND_0074621,183,51.0,0.0,40.8,0,False,False,clean,
+184,CAND_0074731,184,51.0,0.0,40.8,0,False,False,clean,
+185,CAND_0078262,185,51.0,0.0,40.8,0,False,False,clean,
+186,CAND_0083852,186,51.0,0.0,40.8,0,False,False,clean,
+187,CAND_0086154,187,51.0,0.0,40.8,0,False,False,clean,
+188,CAND_0090155,188,51.0,0.0,40.8,0,False,False,clean,
+189,CAND_0094685,189,51.0,0.0,40.8,0,False,False,clean,
+190,CAND_0095207,190,51.0,0.0,40.8,0,False,False,clean,
+191,CAND_0098454,191,51.0,0.0,40.8,0,False,False,clean,
+192,CAND_0099751,192,51.0,0.0,40.8,0,False,False,clean,
+193,CAND_0001819,193,50.0,0.0,40.0,0,False,False,clean,
+194,CAND_0003575,194,50.0,0.0,40.0,0,False,False,clean,
+195,CAND_0010541,195,50.0,0.0,40.0,0,False,False,clean,
+196,CAND_0015057,196,50.0,0.0,40.0,0,False,False,clean,
+197,CAND_0016659,197,50.0,0.0,40.0,0,False,False,clean,
+198,CAND_0019288,198,50.0,0.0,40.0,0,False,False,clean,
+199,CAND_0019845,199,50.0,0.0,40.0,0,False,False,clean,
+200,CAND_0024147,200,50.0,0.0,40.0,0,False,False,clean,
+201,CAND_0030784,201,50.0,0.0,40.0,0,False,False,clean,
+202,CAND_0040677,202,50.0,0.0,40.0,0,False,False,clean,
+203,CAND_0046353,203,50.0,0.0,40.0,0,False,False,clean,
+204,CAND_0048469,204,50.0,0.0,40.0,0,False,False,clean,
+205,CAND_0058412,205,50.0,0.0,40.0,0,False,False,clean,
+206,CAND_0060699,206,50.0,0.0,40.0,0,False,False,clean,
+207,CAND_0064130,207,50.0,0.0,40.0,0,False,False,clean,
+208,CAND_0064331,208,50.0,0.0,40.0,0,False,False,clean,
+209,CAND_0066690,209,50.0,0.0,40.0,0,False,False,clean,
+210,CAND_0066713,210,50.0,0.0,40.0,0,False,False,clean,
+211,CAND_0067041,211,50.0,0.0,40.0,0,False,False,clean,
+212,CAND_0070589,212,50.0,0.0,40.0,0,False,False,clean,
+213,CAND_0087006,213,50.0,0.0,40.0,0,False,False,clean,
+214,CAND_0091580,214,50.0,0.0,40.0,0,False,False,clean,
+215,CAND_0091745,215,50.0,0.0,40.0,0,False,False,clean,
+216,CAND_0098288,216,50.0,0.0,40.0,0,False,False,clean,
+217,CAND_0000273,217,49.0,0.0,39.2,0,False,False,clean,
+218,CAND_0004402,218,49.0,0.0,39.2,0,False,False,clean,
+219,CAND_0004628,219,49.0,0.0,39.2,0,False,False,clean,
+220,CAND_0004972,220,49.0,0.0,39.2,0,False,False,clean,
+221,CAND_0008517,221,49.0,0.0,39.2,0,False,False,clean,
+222,CAND_0022852,222,49.0,0.0,39.2,0,False,False,clean,
+223,CAND_0023093,223,49.0,0.0,39.2,0,False,False,clean,
+224,CAND_0027218,224,49.0,0.0,39.2,0,False,False,clean,
+225,CAND_0027723,225,49.0,0.0,39.2,0,False,False,clean,
+226,CAND_0028287,226,49.0,0.0,39.2,0,False,False,clean,
+227,CAND_0028422,227,49.0,0.0,39.2,0,False,False,clean,
+228,CAND_0029135,228,49.0,0.0,39.2,0,False,False,clean,
+229,CAND_0034177,229,49.0,0.0,39.2,0,False,False,clean,
+230,CAND_0036121,230,49.0,0.0,39.2,0,False,False,clean,
+231,CAND_0038206,231,49.0,0.0,39.2,0,False,False,clean,
+232,CAND_0038949,232,49.0,0.0,39.2,0,False,False,clean,
+233,CAND_0040178,233,49.0,0.0,39.2,0,False,False,clean,
+234,CAND_0046459,234,49.0,0.0,39.2,0,False,False,clean,
+235,CAND_0049340,235,49.0,0.0,39.2,0,False,False,clean,
+236,CAND_0051466,236,49.0,0.0,39.2,0,False,False,clean,
+237,CAND_0055624,237,49.0,0.0,39.2,0,False,False,clean,
+238,CAND_0058426,238,49.0,0.0,39.2,0,False,False,clean,
+239,CAND_0059795,239,49.0,0.0,39.2,0,False,False,clean,
+240,CAND_0061352,240,49.0,0.0,39.2,0,False,False,clean,
+241,CAND_0064888,241,49.0,0.0,39.2,0,False,False,clean,
+242,CAND_0065514,242,49.0,0.0,39.2,0,False,False,clean,
+243,CAND_0069232,243,49.0,0.0,39.2,0,False,False,clean,
+244,CAND_0073556,244,49.0,0.0,39.2,0,False,False,clean,
+245,CAND_0073982,245,49.0,0.0,39.2,0,False,False,clean,
+246,CAND_0074339,246,49.0,0.0,39.2,0,False,False,clean,
+247,CAND_0076412,247,49.0,0.0,39.2,0,False,False,clean,
+248,CAND_0080051,248,49.0,0.0,39.2,0,False,False,clean,
+249,CAND_0086893,249,49.0,0.0,39.2,0,False,False,clean,
+250,CAND_0089947,250,49.0,0.0,39.2,0,False,False,clean,
+251,CAND_0092255,251,49.0,0.0,39.2,0,False,False,clean,
+252,CAND_0096104,252,49.0,0.0,39.2,0,False,False,clean,
+253,CAND_0097176,253,49.0,0.0,39.2,0,False,False,clean,
+254,CAND_0097896,254,49.0,0.0,39.2,0,False,False,clean,
+255,CAND_0000422,255,48.0,0.0,38.4,0,False,False,clean,
+256,CAND_0000981,256,48.0,0.0,38.4,0,False,False,clean,
+257,CAND_0001151,257,48.0,0.0,38.4,0,False,False,clean,
+258,CAND_0001651,258,48.0,0.0,38.4,0,False,False,clean,
+259,CAND_0007052,259,48.0,0.0,38.4,0,False,False,clean,
+260,CAND_0012988,260,48.0,0.0,38.4,0,False,False,clean,
+261,CAND_0018925,261,48.0,0.0,38.4,0,False,False,clean,
+262,CAND_0021491,262,48.0,0.0,38.4,0,False,False,clean,
+263,CAND_0022274,263,48.0,0.0,38.4,0,False,False,clean,
+264,CAND_0028318,264,48.0,0.0,38.4,0,False,False,clean,
+265,CAND_0033749,265,48.0,0.0,38.4,0,False,False,clean,
+266,CAND_0035764,266,48.0,0.0,38.4,0,False,False,clean,
+267,CAND_0038368,267,48.0,0.0,38.4,0,False,False,clean,
+268,CAND_0040310,268,48.0,0.0,38.4,0,False,False,clean,
+269,CAND_0041402,269,48.0,0.0,38.4,0,False,False,clean,
+270,CAND_0042441,270,48.0,0.0,38.4,0,False,False,clean,
+271,CAND_0044091,271,48.0,0.0,38.4,0,False,False,clean,
+272,CAND_0044262,272,48.0,0.0,38.4,0,False,False,clean,
+273,CAND_0044890,273,48.0,0.0,38.4,0,False,False,clean,
+274,CAND_0045475,274,48.0,0.0,38.4,0,False,False,clean,
+275,CAND_0045862,275,48.0,0.0,38.4,0,False,False,clean,
+276,CAND_0052169,276,48.0,0.0,38.4,0,False,False,clean,
+277,CAND_0052360,277,48.0,0.0,38.4,0,False,False,clean,
+278,CAND_0052706,278,48.0,0.0,38.4,0,False,False,clean,
+279,CAND_0052827,279,48.0,0.0,38.4,0,False,False,clean,
+280,CAND_0054377,280,48.0,0.0,38.4,0,False,False,clean,
+281,CAND_0058882,281,48.0,0.0,38.4,0,False,False,clean,
+282,CAND_0060257,282,48.0,0.0,38.4,0,False,False,clean,
+283,CAND_0060340,283,48.0,0.0,38.4,0,False,False,clean,
+284,CAND_0060538,284,48.0,0.0,38.4,0,False,False,clean,
+285,CAND_0061819,285,48.0,0.0,38.4,0,False,False,clean,
+286,CAND_0065805,286,48.0,0.0,38.4,0,False,False,clean,
+287,CAND_0071033,287,48.0,0.0,38.4,0,False,False,clean,
+288,CAND_0071432,288,48.0,0.0,38.4,0,False,False,clean,
+289,CAND_0071939,289,48.0,0.0,38.4,0,False,False,clean,
+290,CAND_0073504,290,48.0,0.0,38.4,0,False,False,clean,
+291,CAND_0075481,291,48.0,0.0,38.4,0,False,False,clean,
+292,CAND_0077784,292,48.0,0.0,38.4,0,False,False,clean,
+293,CAND_0080534,293,48.0,0.0,38.4,0,False,False,clean,
+294,CAND_0081563,294,48.0,0.0,38.4,0,False,False,clean,
+295,CAND_0082291,295,48.0,0.0,38.4,0,False,False,clean,
+296,CAND_0087316,296,48.0,0.0,38.4,0,False,False,clean,
+297,CAND_0090584,297,48.0,0.0,38.4,0,False,False,clean,
+298,CAND_0094025,298,48.0,0.0,38.4,0,False,False,clean,
+299,CAND_0095457,299,48.0,0.0,38.4,0,False,False,clean,
+300,CAND_0096209,300,48.0,0.0,38.4,0,False,False,clean,
+301,CAND_0098952,301,48.0,0.0,38.4,0,False,False,clean,
+302,CAND_0099269,302,48.0,0.0,38.4,0,False,False,clean,
+303,CAND_0000666,303,47.0,0.0,37.6,0,False,False,clean,
+304,CAND_0004131,304,47.0,0.0,37.6,0,False,False,clean,
+305,CAND_0009200,305,47.0,0.0,37.6,0,False,False,clean,
+306,CAND_0009505,306,47.0,0.0,37.6,0,False,False,clean,
+307,CAND_0010283,307,47.0,0.0,37.6,0,False,False,clean,
+308,CAND_0014909,308,47.0,0.0,37.6,0,False,False,clean,
+309,CAND_0015760,309,47.0,0.0,37.6,0,False,False,clean,
+310,CAND_0019200,310,47.0,0.0,37.6,0,False,False,clean,
+311,CAND_0022023,311,47.0,0.0,37.6,0,False,False,clean,
+312,CAND_0025663,312,47.0,0.0,37.6,0,False,False,clean,
+313,CAND_0029336,313,47.0,0.0,37.6,0,False,False,clean,
+314,CAND_0030550,314,47.0,0.0,37.6,0,False,False,clean,
+315,CAND_0032089,315,47.0,0.0,37.6,0,False,False,clean,
+316,CAND_0032271,316,47.0,0.0,37.6,0,False,False,clean,
+317,CAND_0033179,317,47.0,0.0,37.6,0,False,False,clean,
+318,CAND_0041348,318,47.0,0.0,37.6,0,False,False,clean,
+319,CAND_0043304,319,47.0,0.0,37.6,0,False,False,clean,
+320,CAND_0043829,320,47.0,0.0,37.6,0,False,False,clean,
+321,CAND_0043860,321,47.0,0.0,37.6,0,False,False,clean,
+322,CAND_0044576,322,47.0,0.0,37.6,0,False,False,clean,
+323,CAND_0048360,323,47.0,0.0,37.6,0,False,False,clean,
+324,CAND_0049217,324,47.0,0.0,37.6,0,False,False,clean,
+325,CAND_0051593,325,47.0,0.0,37.6,0,False,False,clean,
+326,CAND_0054173,326,47.0,0.0,37.6,0,False,False,clean,
+327,CAND_0057162,327,47.0,0.0,37.6,0,False,False,clean,
+328,CAND_0061175,328,47.0,0.0,37.6,0,False,False,clean,
+329,CAND_0065430,329,47.0,0.0,37.6,0,False,False,clean,
+330,CAND_0068777,330,47.0,0.0,37.6,0,False,False,clean,
+331,CAND_0068985,331,47.0,0.0,37.6,0,False,False,clean,
+332,CAND_0073633,332,47.0,0.0,37.6,0,False,False,clean,
+333,CAND_0073917,333,47.0,0.0,37.6,0,False,False,clean,
+334,CAND_0074317,334,47.0,0.0,37.6,0,False,False,clean,
+335,CAND_0078508,335,47.0,0.0,37.6,0,False,False,clean,
+336,CAND_0078669,336,47.0,0.0,37.6,0,False,False,clean,
+337,CAND_0082618,337,47.0,0.0,37.6,0,False,False,clean,
+338,CAND_0084681,338,47.0,0.0,37.6,0,False,False,clean,
+339,CAND_0086028,339,47.0,0.0,37.6,0,False,False,clean,
+340,CAND_0087494,340,47.0,0.0,37.6,0,False,False,clean,
+341,CAND_0091890,341,47.0,0.0,37.6,0,False,False,clean,
+342,CAND_0001494,342,46.0,0.0,36.8,0,False,False,clean,
+343,CAND_0006354,343,46.0,0.0,36.8,0,False,False,clean,
+344,CAND_0006833,344,46.0,0.0,36.8,0,False,False,clean,
+345,CAND_0008533,345,46.0,0.0,36.8,0,False,False,clean,
+346,CAND_0008618,346,46.0,0.0,36.8,0,False,False,clean,
+347,CAND_0008978,347,46.0,0.0,36.8,0,False,False,clean,
+348,CAND_0014858,348,46.0,0.0,36.8,0,False,False,clean,
+349,CAND_0015493,349,46.0,0.0,36.8,0,False,False,clean,
+350,CAND_0015581,350,46.0,0.0,36.8,0,False,False,clean,
+351,CAND_0017178,351,46.0,0.0,36.8,0,False,False,clean,
+352,CAND_0023458,352,46.0,0.0,36.8,0,False,False,clean,
+353,CAND_0026362,353,46.0,0.0,36.8,0,False,False,clean,
+354,CAND_0038099,354,46.0,0.0,36.8,0,False,False,clean,
+355,CAND_0043904,355,46.0,0.0,36.8,0,False,False,clean,
+356,CAND_0044696,356,46.0,0.0,36.8,0,False,False,clean,
+357,CAND_0045141,357,46.0,0.0,36.8,0,False,False,clean,
+358,CAND_0049543,358,46.0,0.0,36.8,0,False,False,clean,
+359,CAND_0051936,359,46.0,0.0,36.8,0,False,False,clean,
+360,CAND_0052498,360,46.0,0.0,36.8,0,False,False,clean,
+361,CAND_0058152,361,46.0,0.0,36.8,0,False,False,clean,
+362,CAND_0058300,362,46.0,0.0,36.8,0,False,False,clean,
+363,CAND_0061177,363,46.0,0.0,36.8,0,False,False,clean,
+364,CAND_0061550,364,46.0,0.0,36.8,0,False,False,clean,
+365,CAND_0063585,365,46.0,0.0,36.8,0,False,False,clean,
+366,CAND_0065991,366,46.0,0.0,36.8,0,False,False,clean,
+367,CAND_0067535,367,46.0,0.0,36.8,0,False,False,clean,
+368,CAND_0067717,368,46.0,0.0,36.8,0,False,False,clean,
+369,CAND_0068456,369,46.0,0.0,36.8,0,False,False,clean,
+370,CAND_0069386,370,46.0,0.0,36.8,0,False,False,clean,
+371,CAND_0069773,371,46.0,0.0,36.8,0,False,False,clean,
+372,CAND_0072091,372,46.0,0.0,36.8,0,False,False,clean,
+373,CAND_0072721,373,46.0,0.0,36.8,0,False,False,clean,
+374,CAND_0072768,374,46.0,0.0,36.8,0,False,False,clean,
+375,CAND_0074024,375,46.0,0.0,36.8,0,False,False,clean,
+376,CAND_0083790,376,46.0,0.0,36.8,0,False,False,clean,
+377,CAND_0086062,377,46.0,0.0,36.8,0,False,False,clean,
+378,CAND_0088237,378,46.0,0.0,36.8,0,False,False,clean,
+379,CAND_0091254,379,46.0,0.0,36.8,0,False,False,clean,
+380,CAND_0093799,380,46.0,0.0,36.8,0,False,False,clean,
+381,CAND_0093883,381,46.0,0.0,36.8,0,False,False,clean,
+382,CAND_0095567,382,46.0,0.0,36.8,0,False,False,clean,
+383,CAND_0095884,383,46.0,0.0,36.8,0,False,False,clean,
+384,CAND_0001940,384,45.0,0.0,36.0,0,False,False,clean,
+385,CAND_0002120,385,45.0,0.0,36.0,0,False,False,clean,
+386,CAND_0003506,386,45.0,0.0,36.0,0,False,False,clean,
+387,CAND_0003557,387,45.0,0.0,36.0,0,False,False,clean,
+388,CAND_0012840,388,45.0,0.0,36.0,0,False,False,clean,
+389,CAND_0013456,389,45.0,0.0,36.0,0,False,False,clean,
+390,CAND_0013665,390,45.0,0.0,36.0,0,False,False,clean,
+391,CAND_0014234,391,45.0,0.0,36.0,0,False,False,clean,
+392,CAND_0020991,392,45.0,0.0,36.0,0,False,False,clean,
+393,CAND_0025640,393,45.0,0.0,36.0,0,False,False,clean,
+394,CAND_0025939,394,45.0,0.0,36.0,0,False,False,clean,
+395,CAND_0028527,395,45.0,0.0,36.0,0,False,False,clean,
+396,CAND_0028838,396,45.0,0.0,36.0,0,False,False,clean,
+397,CAND_0031703,397,45.0,0.0,36.0,0,False,False,clean,
+398,CAND_0032179,398,45.0,0.0,36.0,0,False,False,clean,
+399,CAND_0032270,399,45.0,0.0,36.0,0,False,False,clean,
+400,CAND_0034148,400,45.0,0.0,36.0,0,False,False,clean,
+401,CAND_0035315,401,45.0,0.0,36.0,0,False,False,clean,
+402,CAND_0036520,402,45.0,0.0,36.0,0,False,False,clean,
+403,CAND_0040946,403,45.0,0.0,36.0,0,False,False,clean,
+404,CAND_0042370,404,45.0,0.0,36.0,0,False,False,clean,
+405,CAND_0043958,405,45.0,0.0,36.0,0,False,False,clean,
+406,CAND_0045613,406,45.0,0.0,36.0,0,False,False,clean,
+407,CAND_0047492,407,45.0,0.0,36.0,0,False,False,clean,
+408,CAND_0049615,408,45.0,0.0,36.0,0,False,False,clean,
+409,CAND_0050707,409,45.0,0.0,36.0,0,False,False,clean,
+410,CAND_0051219,410,45.0,0.0,36.0,0,False,False,clean,
+411,CAND_0052735,411,45.0,0.0,36.0,0,False,False,clean,
+412,CAND_0053527,412,45.0,0.0,36.0,0,False,False,clean,
+413,CAND_0053934,413,45.0,0.0,36.0,0,False,False,clean,
+414,CAND_0060303,414,45.0,0.0,36.0,0,False,False,clean,
+415,CAND_0064256,415,45.0,0.0,36.0,0,False,False,clean,
+416,CAND_0066798,416,45.0,0.0,36.0,0,False,False,clean,
+417,CAND_0067609,417,45.0,0.0,36.0,0,False,False,clean,
+418,CAND_0071913,418,45.0,0.0,36.0,0,False,False,clean,
+419,CAND_0074342,419,45.0,0.0,36.0,0,False,False,clean,
+420,CAND_0076482,420,45.0,0.0,36.0,0,False,False,clean,
+421,CAND_0076995,421,45.0,0.0,36.0,0,False,False,clean,
+422,CAND_0077504,422,45.0,0.0,36.0,0,False,False,clean,
+423,CAND_0078042,423,45.0,0.0,36.0,0,False,False,clean,
+424,CAND_0087264,424,45.0,0.0,36.0,0,False,False,clean,
+425,CAND_0087529,425,45.0,0.0,36.0,0,False,False,clean,
+426,CAND_0090300,426,45.0,0.0,36.0,0,False,False,clean,
+427,CAND_0093185,427,45.0,0.0,36.0,0,False,False,clean,
+428,CAND_0003609,428,44.0,0.0,35.2,0,False,False,clean,
+429,CAND_0011326,429,44.0,0.0,35.2,0,False,False,clean,
+430,CAND_0021827,430,44.0,0.0,35.2,0,False,False,clean,
+431,CAND_0022413,431,44.0,0.0,35.2,0,False,False,clean,
+432,CAND_0022463,432,44.0,0.0,35.2,0,False,False,clean,
+433,CAND_0023583,433,44.0,0.0,35.2,0,False,False,clean,
+434,CAND_0030207,434,44.0,0.0,35.2,0,False,False,clean,
+435,CAND_0041016,435,44.0,0.0,35.2,0,False,False,clean,
+436,CAND_0043312,436,44.0,0.0,35.2,0,False,False,clean,
+437,CAND_0044463,437,44.0,0.0,35.2,0,False,False,clean,
+438,CAND_0046095,438,44.0,0.0,35.2,0,False,False,clean,
+439,CAND_0046526,439,44.0,0.0,35.2,0,False,False,clean,
+440,CAND_0047327,440,44.0,0.0,35.2,0,False,False,clean,
+441,CAND_0048690,441,44.0,0.0,35.2,0,False,False,clean,
+442,CAND_0061479,442,44.0,0.0,35.2,0,False,False,clean,
+443,CAND_0069925,443,44.0,0.0,35.2,0,False,False,clean,
+444,CAND_0070544,444,44.0,0.0,35.2,0,False,False,clean,
+445,CAND_0073781,445,44.0,0.0,35.2,0,False,False,clean,
+446,CAND_0074325,446,44.0,0.0,35.2,0,False,False,clean,
+447,CAND_0085557,447,44.0,0.0,35.2,0,False,False,clean,
+448,CAND_0093540,448,44.0,0.0,35.2,0,False,False,clean,
+449,CAND_0097472,449,44.0,0.0,35.2,0,False,False,clean,
+450,CAND_0001405,450,43.0,0.0,34.4,0,False,False,clean,
+451,CAND_0007596,451,43.0,0.0,34.4,0,False,False,clean,
+452,CAND_0008139,452,43.0,0.0,34.4,0,False,False,clean,
+453,CAND_0023559,453,43.0,0.0,34.4,0,False,False,clean,
+454,CAND_0024630,454,43.0,0.0,34.4,0,False,False,clean,
+455,CAND_0033650,455,43.0,0.0,34.4,0,False,False,clean,
+456,CAND_0043450,456,43.0,0.0,34.4,0,False,False,clean,
+457,CAND_0075715,457,43.0,0.0,34.4,0,False,False,clean,
+458,CAND_0086790,458,43.0,0.0,34.4,0,False,False,clean,
+459,CAND_0014743,459,42.0,0.0,33.6,0,False,False,clean,
+460,CAND_0016267,460,42.0,0.0,33.6,0,False,False,clean,
+461,CAND_0044565,461,42.0,0.0,33.6,0,False,False,clean,
+462,CAND_0055673,462,42.0,0.0,33.6,0,False,False,clean,
+463,CAND_0067403,463,42.0,0.0,33.6,0,False,False,clean,
+464,CAND_0080472,464,42.0,0.0,33.6,0,False,False,clean,
+465,CAND_0084391,465,42.0,0.0,33.6,0,False,False,clean,
+466,CAND_0086657,466,42.0,0.0,33.6,0,False,False,clean,
+467,CAND_0023076,467,41.0,0.0,32.8,0,False,False,clean,
+468,CAND_0031143,468,41.0,0.0,32.8,0,False,False,clean,
+469,CAND_0038328,469,41.0,0.0,32.8,0,False,False,clean,
+470,CAND_0054318,470,41.0,0.0,32.8,0,False,False,clean,
+471,CAND_0071747,471,41.0,0.0,32.8,0,False,False,clean,
+472,CAND_0092989,472,41.0,0.0,32.8,0,False,False,clean,
+473,CAND_0002426,473,40.0,0.0,32.0,0,False,False,clean,
+474,CAND_0005303,474,40.0,0.0,32.0,0,False,False,clean,
+475,CAND_0006437,475,40.0,0.0,32.0,0,False,False,clean,
+476,CAND_0006850,476,40.0,0.0,32.0,0,False,False,clean,
+477,CAND_0007874,477,40.0,0.0,32.0,0,False,False,clean,
+478,CAND_0011125,478,40.0,0.0,32.0,0,False,False,clean,
+479,CAND_0011140,479,40.0,0.0,32.0,0,False,False,clean,
+480,CAND_0011220,480,40.0,0.0,32.0,0,False,False,clean,
+481,CAND_0011757,481,40.0,0.0,32.0,0,False,False,clean,
+482,CAND_0012798,482,40.0,0.0,32.0,0,False,False,clean,
+483,CAND_0012888,483,40.0,0.0,32.0,0,False,False,clean,
+484,CAND_0013988,484,40.0,0.0,32.0,0,False,False,clean,
+485,CAND_0015478,485,40.0,0.0,32.0,0,False,False,clean,
+486,CAND_0016678,486,40.0,0.0,32.0,0,False,False,clean,
+487,CAND_0018653,487,40.0,0.0,32.0,0,False,False,clean,
+488,CAND_0021729,488,40.0,0.0,32.0,0,False,False,clean,
+489,CAND_0023215,489,40.0,0.0,32.0,0,False,False,clean,
+490,CAND_0023587,490,40.0,0.0,32.0,0,False,False,clean,
+491,CAND_0024170,491,40.0,0.0,32.0,0,False,False,clean,
+492,CAND_0024203,492,40.0,0.0,32.0,0,False,False,clean,
+493,CAND_0029671,493,40.0,0.0,32.0,0,False,False,clean,
+494,CAND_0029971,494,40.0,0.0,32.0,0,False,False,clean,
+495,CAND_0031306,495,40.0,0.0,32.0,0,False,False,clean,
+496,CAND_0031397,496,40.0,0.0,32.0,0,False,False,clean,
+497,CAND_0032515,497,40.0,0.0,32.0,0,False,False,clean,
+498,CAND_0041233,498,40.0,0.0,32.0,0,False,False,clean,
+499,CAND_0041568,499,40.0,0.0,32.0,0,False,False,clean,
+500,CAND_0046108,500,40.0,0.0,32.0,0,False,False,clean,
+501,CAND_0047521,501,40.0,0.0,32.0,0,False,False,clean,
+502,CAND_0050146,502,40.0,0.0,32.0,0,False,False,clean,
+503,CAND_0050297,503,40.0,0.0,32.0,0,False,False,clean,
+504,CAND_0050553,504,40.0,0.0,32.0,0,False,False,clean,
+505,CAND_0051003,505,40.0,0.0,32.0,0,False,False,clean,
+506,CAND_0052030,506,40.0,0.0,32.0,0,False,False,clean,
+507,CAND_0053591,507,40.0,0.0,32.0,0,False,False,clean,
+508,CAND_0054100,508,40.0,0.0,32.0,0,False,False,clean,
+509,CAND_0055362,509,40.0,0.0,32.0,0,False,False,clean,
+510,CAND_0055842,510,40.0,0.0,32.0,0,False,False,clean,
+511,CAND_0056058,511,40.0,0.0,32.0,0,False,False,clean,
+512,CAND_0056262,512,40.0,0.0,32.0,0,False,False,clean,
+513,CAND_0057134,513,40.0,0.0,32.0,0,False,False,clean,
+514,CAND_0057529,514,40.0,0.0,32.0,0,False,False,clean,
+515,CAND_0062658,515,40.0,0.0,32.0,0,False,False,clean,
+516,CAND_0062772,516,40.0,0.0,32.0,0,False,False,clean,
+517,CAND_0068012,517,40.0,0.0,32.0,0,False,False,clean,
+518,CAND_0068393,518,40.0,0.0,32.0,0,False,False,clean,
+519,CAND_0072195,519,40.0,0.0,32.0,0,False,False,clean,
+520,CAND_0073450,520,40.0,0.0,32.0,0,False,False,clean,
+521,CAND_0075409,521,40.0,0.0,32.0,0,False,False,clean,
+522,CAND_0076904,522,40.0,0.0,32.0,0,False,False,clean,
+523,CAND_0077881,523,40.0,0.0,32.0,0,False,False,clean,
+524,CAND_0079830,524,40.0,0.0,32.0,0,False,False,clean,
+525,CAND_0079888,525,40.0,0.0,32.0,0,False,False,clean,
+526,CAND_0081686,526,40.0,0.0,32.0,0,False,False,clean,
+527,CAND_0084090,527,40.0,0.0,32.0,0,False,False,clean,
+528,CAND_0088049,528,40.0,0.0,32.0,0,False,False,clean,
+529,CAND_0088354,529,40.0,0.0,32.0,0,False,False,clean,
+530,CAND_0089726,530,40.0,0.0,32.0,0,False,False,clean,
+531,CAND_0092468,531,40.0,0.0,32.0,0,False,False,clean,
+532,CAND_0094023,532,40.0,0.0,32.0,0,False,False,clean,
+533,CAND_0094916,533,40.0,0.0,32.0,0,False,False,clean,
+534,CAND_0099675,534,40.0,0.0,32.0,0,False,False,clean,
+535,CAND_0099965,535,40.0,0.0,32.0,0,False,False,clean,
+536,CAND_0054059,536,39.0,0.0,31.2,0,False,False,clean,
+537,CAND_0072660,537,30.0,0.0,24.0,0,False,False,clean,
+538,CAND_0095140,538,23.0,0.0,18.4,0,False,False,suspicious,"Expert proficiency with zero usage duration: Kafka, QLoRA, CNN."
+539,CAND_0055792,539,21.0,0.0,16.8,0,False,False,suspicious,"Expert proficiency with zero usage duration: Scrum, TTS, LoRA."
+540,CAND_0061722,540,21.0,0.0,16.8,0,False,False,suspicious,"Expert proficiency with zero usage duration: Terraform, GANs, Milvus, MongoDB, Speech Recognition."
+541,CAND_0095480,541,8.0,0.0,6.4,0,False,False,suspicious,"Expert proficiency with zero usage duration: Agile, React, Snowflake, Content Writing."
+542,CAND_0063888,542,3.0,0.0,2.4,0,False,False,suspicious,"Expert proficiency with zero usage duration: Project Management, Accounting, MLOps, React, Webpack."
+543,CAND_0003582,543,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: MLflow, Photoshop, Content Writing."
+544,CAND_0003599,544,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-04-18, before its verified earliest start 2023-01-01."
+545,CAND_0004112,545,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2019-12-30, before its verified earliest start 2023-01-01."
+546,CAND_0005191,546,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-03-29, before its verified earliest start 2023-07-01."
+547,CAND_0005269,547,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-15, before its verified earliest start 2023-07-01."
+548,CAND_0005509,548,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-08-12, before its verified earliest start 2023-07-01."
+549,CAND_0005704,549,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-03-07, before its verified earliest start 2023-07-01."
+550,CAND_0008049,550,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-03-29, before its verified earliest start 2023-07-01."
+551,CAND_0011263,551,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-06-22, before its verified earliest start 2023-07-01."
+552,CAND_0011327,552,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-10-15, before its verified earliest start 2023-01-01."
+553,CAND_0011432,553,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-12-24, before its verified earliest start 2023-01-01."
+554,CAND_0011687,554,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2018-11-05, before its verified earliest start 2023-01-01."
+555,CAND_0011707,555,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-09-20, before its verified earliest start 2023-01-01."
+556,CAND_0012837,556,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
+557,CAND_0014063,557,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-15, before its verified earliest start 2023-07-01."
+558,CAND_0015097,558,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-06-27, before its verified earliest start 2023-01-01."
+559,CAND_0015528,559,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-02-17, before its verified earliest start 2023-01-01."
+560,CAND_0016000,560,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: TypeScript, Go, Docker, Hadoop, Photoshop."
+561,CAND_0016170,561,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-04-14, before its verified earliest start 2023-01-01."
+562,CAND_0016657,562,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-04-16, before its verified earliest start 2023-07-01."
+563,CAND_0017960,563,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2018-09-22, before its verified earliest start 2023-07-01."
+564,CAND_0018013,564,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-05-18, before its verified earliest start 2023-07-01."
+565,CAND_0018293,565,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-12-24, before its verified earliest start 2023-07-01."
+566,CAND_0018701,566,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-11-14, before its verified earliest start 2023-01-01."
+567,CAND_0019159,567,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-04-28, before its verified earliest start 2023-01-01."
+568,CAND_0021410,568,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-12-14, before its verified earliest start 2023-01-01.|Employment at Sarvam AI starts 2022-06-10, before its verified earliest start 2023-07-01."
+569,CAND_0022232,569,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-08-16, before its verified earliest start 2023-01-01."
+570,CAND_0022720,570,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-03-14, before its verified earliest start 2023-07-01."
+571,CAND_0024878,571,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-10-25, before its verified earliest start 2023-01-01."
+572,CAND_0025923,572,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-07-22, before its verified earliest start 2023-01-01."
+573,CAND_0028908,573,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
+574,CAND_0031068,574,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-01-18, before its verified earliest start 2023-01-01."
+575,CAND_0033311,575,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-12-19, before its verified earliest start 2023-07-01."
+576,CAND_0033817,576,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: JavaScript, BigQuery, Six Sigma, gRPC."
+577,CAND_0033842,577,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-09-18, before its verified earliest start 2023-01-01."
+578,CAND_0033861,578,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-08-26, before its verified earliest start 2023-07-01."
+579,CAND_0033972,579,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: Airflow, OpenCV, Figma."
+580,CAND_0034849,580,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
+581,CAND_0035779,581,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-12-19, before its verified earliest start 2023-01-01."
+582,CAND_0036839,582,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: SAP, GCP, Rust."
+583,CAND_0036973,583,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-05-28, before its verified earliest start 2023-01-01."
+584,CAND_0040099,584,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01."
+585,CAND_0042245,585,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: Databricks, BentoML, Vue.js."
+586,CAND_0046649,586,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: SAP, Node.js, gRPC, Flask, Hadoop."
+587,CAND_0046689,587,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: Node.js, SQL, gRPC, Spark."
+588,CAND_0048166,588,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-08-16, before its verified earliest start 2023-07-01."
+589,CAND_0048740,589,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: gRPC, Angular, Content Writing."
+590,CAND_0049978,590,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-02-17, before its verified earliest start 2023-07-01."
+591,CAND_0050765,591,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01."
+592,CAND_0051615,592,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-11-19, before its verified earliest start 2023-01-01."
+593,CAND_0052195,593,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-02-12, before its verified earliest start 2023-07-01."
+594,CAND_0055905,594,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Rephrase.ai starts 2018-05-09, before its verified earliest start 2019-01-01."
+595,CAND_0056983,595,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: Rust, Next.js, Redis, Salesforce CRM, MongoDB."
+596,CAND_0058517,596,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-04-23, before its verified earliest start 2023-01-01."
+597,CAND_0059400,597,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-04-13, before its verified earliest start 2023-07-01."
+598,CAND_0059520,598,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-01, before its verified earliest start 2023-07-01."
+599,CAND_0060642,599,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: Milvus, Agile, Azure, Diffusion Models, MongoDB."
+600,CAND_0060835,600,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-05-18, before its verified earliest start 2023-07-01."
+601,CAND_0061156,601,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-09-15, before its verified earliest start 2023-07-01."
+602,CAND_0061339,602,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-04-27, before its verified earliest start 2023-01-01."
+603,CAND_0061655,603,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-11-14, before its verified earliest start 2023-01-01."
+604,CAND_0063736,604,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-10-15, before its verified earliest start 2023-01-01."
+605,CAND_0063862,605,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-03-24, before its verified earliest start 2023-01-01."
+606,CAND_0065052,606,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01."
+607,CAND_0065096,607,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: ETL, Tally, Flask, Rust."
+608,CAND_0065450,608,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-05-18, before its verified earliest start 2023-07-01."
+609,CAND_0065878,609,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Rephrase.ai starts 2018-06-08, before its verified earliest start 2019-01-01."
+610,CAND_0065927,610,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2019-11-30, before its verified earliest start 2023-01-01."
+611,CAND_0066791,611,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-10-15, before its verified earliest start 2023-01-01."
+612,CAND_0067183,612,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-10-15, before its verified earliest start 2023-07-01."
+613,CAND_0068513,613,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-06-17, before its verified earliest start 2023-07-01."
+614,CAND_0068932,614,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-09-15, before its verified earliest start 2023-01-01."
+615,CAND_0069248,615,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-03-17, before its verified earliest start 2023-07-01."
+616,CAND_0070429,616,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: MLOps, Figma, Accounting, YOLO, Java."
+617,CAND_0070653,617,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-07-22, before its verified earliest start 2023-01-01."
+618,CAND_0070808,618,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-03-29, before its verified earliest start 2023-01-01."
+619,CAND_0071115,619,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-09-25, before its verified earliest start 2023-01-01."
+620,CAND_0072032,620,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-07-27, before its verified earliest start 2023-01-01."
+621,CAND_0072232,621,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-07-10, before its verified earliest start 2023-07-01."
+622,CAND_0072379,622,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: Azure, Redux, Illustrator, Spark."
+623,CAND_0073853,623,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: CI/CD, Marketing, GCP, Excel, AWS."
+624,CAND_0077296,624,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-08-26, before its verified earliest start 2023-07-01."
+625,CAND_0077343,625,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-04-21, before its verified earliest start 2023-07-01."
+626,CAND_0079662,626,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2020-08-12, before its verified earliest start 2023-01-01."
+627,CAND_0081480,627,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-12-14, before its verified earliest start 2023-07-01."
+628,CAND_0081778,628,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-08-21, before its verified earliest start 2023-07-01."
+629,CAND_0084283,629,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-11-14, before its verified earliest start 2023-07-01."
+630,CAND_0085851,630,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-10-18, before its verified earliest start 2023-07-01."
+631,CAND_0087120,631,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2021-05-23, before its verified earliest start 2023-01-01."
+632,CAND_0088385,632,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2019-06-03, before its verified earliest start 2023-01-01."
+633,CAND_0088441,633,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-11-14, before its verified earliest start 2023-07-01."
+634,CAND_0088878,634,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-02-26, before its verified earliest start 2023-01-01."
+635,CAND_0089406,635,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-05-11, before its verified earliest start 2023-01-01."
+636,CAND_0091039,636,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2023-05-13, before its verified earliest start 2023-07-01."
+637,CAND_0093547,637,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2021-01-16, before its verified earliest start 2023-07-01."
+638,CAND_0095317,638,0.0,0.0,0.0,0,False,False,suspicious,"Expert proficiency with zero usage duration: Webpack, Figma, dbt."
 639,CAND_0096589,639,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2022-12-14, before its verified earliest start 2023-07-01."
 640,CAND_0096823,640,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Krutrim starts 2022-03-19, before its verified earliest start 2023-01-01."
 641,CAND_0099581,641,0.0,0.0,0.0,0,False,False,verified_failure,"Employment at Sarvam AI starts 2020-11-17, before its verified earliest start 2023-07-01."
